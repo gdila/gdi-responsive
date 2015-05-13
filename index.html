@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Responsive Design Workshop ~ Girl Develop It</title>
+
+  <meta name="description" content="This is the beta version of the Responsive Design Workshop by Nicole Rodriguez for Girl Develop It.
+
+  The workshop is meant to be taught in a 3-4 hour session.">
+  <meta name="author" content="Girl Develop It">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <link rel="stylesheet" href="reveal/css/reveal.css">
+  <link rel="stylesheet" href="reveal/css/theme/gdilight.css" id="theme">
+
+  <!-- For syntax highlighting -->
+  <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
+  <!-- dark editor--><link rel="stylesheet" href="reveal/lib/css/light.css">
+
+  <!-- If use the PDF print sheet so students can print slides-->
+
+  <link rel="stylesheet" href="reveal/css/print/pdf.css" type="text/css" media="print">
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+       <!-- Opening slide -->
+       <!-- WiFi Info -->
+      
+
+      <section>
+        <img src = "images/rwd-1.jpg" style="border: none; box-shadow: none;padding-bottom: 40px;">
+        <h3>Responsive Web Design Workshop</h3>
+        
+      </section>
+      <section>
+          <h3>Set up your computer for today</h3>
+          <p>Download the files for today's exercises: <a href="http://gdidetroit.com/intro-rwd-exercises.zip">gdidetroit.com/intro-rwd-exercises.zip</a></p>
+          <hr>
+          <p>Follow along with the slides at: <br>
+            <a href="http://gdidetroit.com/intro-responsive">gdidetroit.com/intro-responsive</a></p>
+          <img src="images/gdi-det.png" alt="GDI Detroit logo">
+        
+        </section>
+      <!-- Welcome-->
+    
+      <section>
+       <h3>Meet Aisha</h3>
+  
+       <div style="width:70%; float: left;">
+         <ul>
+          <li>Front-end web developer</li>
+          <li>Teacher of adults and children alike</li>
+          <li>Co-organizer of GDI Detroit</li>
+          <li>Dog enthusiast</li>
+          <li>Coding boot camp curriculum writer</li>
+           <li class="fragment" style="margin-bottom: 10px;">Twitter: <a href="http://www.twitter.com/AishaBlake">@AishaBlake</a></li>
+            <li class="fragment" style="margin-bottom: 10px;">E-mail: <a href="mailto:aisha.g.blake@gmail.com">aisha.g.blake@gmail.com</a></li>
+        </ul>
+      </div>
+      <div style="width:30%; float: right;"><img src="images/turkey-prof.png"/></div>
+    </section>
+
+      </section>
+      <section>
+        <h3>Now I wanna know about you!</h3>
+        <div class = "left-align">
+          <ul>
+          <li>What's your name?</li>
+          <li>What is your go-to karaoke song?</li>
+
+        </ul>
+          
+        </div>  
+
+      </section>
+
+
+      <!-- What is Responsive?-->
+      
+
+<section>
+      <h3>Bad user experiences are sad.</h3>
+      <img src="images/sad.png" width="500"/>
+    </section>
+
+    <section>
+      <h3>Responsive Design gets it.</h3>
+      <p>And it's here to make things right.</p>
+      <p><img src = "images/ok.jpg" width="600"> </p>
+    </section>
+
+    <section>
+      <h3>Tonight we will:</h3>
+      <ul>
+        <li>Make things right by &ldquo;responsivising&rdquo; a fixed-width website</li>
+        <li>Do math and like it :-)</li>
+        <li>Explore frameworks and design tools that help us plan for responsive</li>
+        <li>Learn some best practices</li>
+      </ul>
+      
+    </section>
+
+      <section>
+      <h3>What exactly is Responsive Design?</h3>
+
+      
+
+      <p style="text-align: left;">Responsive Design is the practice of designing and developing websites that allow the user to enjoy its features no matter what device they're viewing it on.</p>
+          <img src = "images/cute.png" width="300"> 
+
+        </section>
+        <section>
+    <h3>Responsive's roots</h3>
+    <p style="text-align: left;">Responsive Web Design was first coined by Ethan Marcotte in the <span class="pretty"><a href="http://alistapart.com/article/responsive-web-design" target="_blank">May 2010 issue of A List Apart</a></span>.</p>
+    <p style="text-align: left;">He also wrote this <a href="http://www.abookapart.com/products/responsive-web-design" target="_blank">very nice book</a> and owns the website <a href="http://responsivewebdesign.com/" target="_blank">Responsivewebdesign.com</a>, which are both excellent resources.</p>
+          <img src = "images/alistapart.png" width="500"/>
+</section>
+        <section>
+          <h3>Why does Responsive matter?</h3>
+          <p style="text-align: left;">There are 1.75 Billion smartphone users worldwide.</p>
+          <p style="text-align: left;">91% of smartphone users in the U.S. have their smart phone within reach 24/7.</p>
+          <p style="text-align: left;">And many of them are checking their phones an average of 150x every day.</p>
+<p style="text-align: left;">25% of smartphone users in the U.S. don't even own a laptop or desktop computer.</p>
+            
+          
+        </section>
+        <section><h3>And because...</h3><p style="text-align: left;">Mobile web usage will surpass desktop internet usage by 2015.<br/>So... that's already happened!</p>
+          <p style="text-align: left;">Our phones ARE our computers.</p></section>
+
+            <section>
+        <h3>Is your favorite website responsive?</h3>
+        <p>You can enter the URL here: <a href="http://www.responsinator.com/?url=http%3A%2F%2Fmilkbarstore.com%2F" target="_blank">http://www.responsinator.com</a></p>
+        <img src="images/milk.png" width="700"/>
+      </section>
+
+        <section>
+          <h3>A few devices to consider</h3>
+          
+          <img src = "images/android-devices.png" width="700px"><p style="font-size: .75em;">(these are just Android phone, tablets, phablets. <a href="http://i-skool.co.uk/mobile-development/web-design-for-mobiles-and-tablets-viewport-sizes/" target="_blank">Here are the rest</a>.)</p> 
+        </section>
+
+        <section><h3>Right?</h3>
+          <img src = "images/scream.jpg" width="300px"></section>
+
+       
+
+
+
+       
+      <section>
+        <h3>Responsive is our solution for this madness</h3>
+        <p>The magic is achieved with these 3 ingredients:</p>
+        <ol>
+          <li>fluid grids</li>
+          <li>flexible images</li>
+          <li>CSS3 media queries</li>
+        </ol>
+      </section>
+
+      
+
+      <section>
+          <h3>1. Fluid Grids</h3>
+          <p style="text-align: left;">First we define a width for our grid's  container.</p>
+ <p style="text-align: left;">We divide the content up into a set of columns, usually 12.</p>
+ <p style="text-align: left;">Then we design elements that can scale in size. Instead of assigning a specific pixel dimension, we use percentages.</p>
+ <p style="text-align: left;">Whenever the device width changes, the grids change in width to scale with the device.
+          </p>
+            <img src = "images/grid-cols.png" width="840"/>
+        </section>
+
+  <section>
+          <h3>2. Flexible Images</h3>
+         
+        <p style="text-align: left;">Here are some examples:</p>
+      <ul>
+<li>max-width</li>
+        <li><a href="https://css-tricks.com/using-svg/" target="_blank">SVG (scalable vector graphics)</a></li>
+        <li><a href="https://icomoon.io/#icon-font" target="_blank">icon fonts</a></li>
+
+          <li><a href="http://alistapart.com/article/responsive-images-in-practice" target="_blank">srcset</a></li>
+          <li><a href="http://alistapart.com/article/responsive-images-in-practice" target="_blank">sizes</a></li>
+          <li><a href="http://alistapart.com/article/responsive-images-in-practice" target="_blank">picture</a></li>
+          <li><a href="http://alistapart.com/article/responsive-images-in-practice" target="_blank">source</a></li>
+        </ul>
+        </section>
+
+<section>
+          <h3>2. Flexible Images</h3>
+         
+        <p style="text-align: left;">We could have an entire workshop just on flexible images alone!</p>
+        <p style="text-align: left;">So, we won't be discussing all of those options tonight, but <a href="http://alistapart.com/article/responsive-images-in-practice" target="_blank">this article</a> does a great job of detailing them.</p>
+
+<img src = "images/practice.png" width="600"/><br/>
+        </section>
+   <section>
+         <h3>2. Flexible Images: max-width</h3>
+         
+       
+        <p>For now, we'll be using max-width.</p>
+
+        <img src = "images/maxwidth.png" width="650"/><br/>
+
+       
+      </section>
+
+      <section>
+
+        <h3>2. Flexible Images: max-width</h3> 
+        <p style="text-align: left;">Unlike text, which scales easily on smaller devices, images can be a bit tricky.
+Unless we give them a <code>max-width</code>, images will overflow their container elements if they're too big for them.</p>
+
+ <img src = "images/if-i-fits-i-sits.jpg" width="450"/><br/>
+</section>
+<section>
+
+        <h3>2. Flexible Images: max-width</h3> 
+
+<p style="text-align: left;">By assigning a <code>max-width</code> to images, they'll only expand to the size of their parent.
+If their parent has no width (which it probably does), it'll just expand to the width of the viewport.</p>
+      
+<img src = "images/if_it_fits_i_sits_16.jpg" width="450"/><br/>
+       
+      </section>
+
+
+         <section>
+          <h3>3. CSS3 Media Queries</h3>
+          <p style="text-align: left;">CSS3 media queries let us assign breakpoints that correspond to the pixel width of your desktop monitor, tablet, e-reader, or phone display.</p>
+          <p style="text-align: left;">These breakpoints tell the content what to do when the display (or viewport) falls within these widths.</p>
+          <img src = "images/responsivedesign1.jpg" width="800"/>
+        </section>
+
+        <section>
+        <h3>A Clever Example of Media Queries</h3>
+       
+          <p><a href="http://stuffandnonsense.co.uk/" target="_blank">http://stuffandnonsense.co.uk</a></p>
+
+            <img src = "images/stuff-and-nonsense.jpg" width="600"/>
+    
+
+      </section>
+
+       <section>
+        <h3>Let's take a peek at some awesomeness</h3>
+       
+          <p style="text-align: left;">Let's go to our Exercise folder, find the _MediaQueryMagic folder, and open <strong>awesomeness.html</strong> in our browser.</p>
+
+            <img src = "images/magic.png" width="420"/>
+<br/><br/>
+            <p style="text-align: left;">Then let's go to our styles folder and open <strong>styles.css</strong> in Sublime Text.</p>
+
+            <img src = "images/magic2.png" width="330"/>
+    
+
+      </section>
+
+      <section>
+        <h3>Let's take a peek at some awesomeness</h3>
+       
+          <p style="text-align: left;">We can see the breakpoints and styles assigned to this page in our media queries as we narrow our browser window.</p>
+
+        
+
+            <img src = "images/ss.png" width="630"/>
+            <img src = "images/ss2.png" width="430"/>
+            <img src = "images/ss3.png" width="230"/>
+    
+
+      </section>
+      
+
+    
+
+
+
+       <section>
+        <h3>The website we'll be working with next</h3>
+        <p>Let's open "working.html" in our browser.</p>
+       
+         <div class="left" width="500"> <img src = "images/baby-animals.png" width="500"/></div>
+            <div class="right"> <img src = "images/exercises-1.png" width="330"/></div>
+    
+
+      </section>
+      
+
+       <section>
+        <h3>Not Responsive :-(</h3>
+        <p>What if we don't want to start all over and make a totally new responsive site? We just want to make the <em>existing</em> site responsive.</p>
+        <img src="images/not.png" width="300"/>
+      </section>
+
+      <section>
+        <h3>Making it Responsive</h3>
+        <p style="text-align: left;">We can totally make the following adjustments and get this site looking lovely on a mobile device:</p>
+      
+        <ul>
+          <li>change up our font units</li>
+          <li>make the existing grid fluid</li>
+          <li>add CSS3 media queries</li>
+        </ul>
+
+        <p style="text-align: left; padding-top: 25px;">This will suit our needs because our site is small and manageable. But if you're starting a shiny new project, we'll explore some other options in a bit.</p>
+        
+      </section>
+       
+     
+<section>
+        <h3>Making it Responsive: Fonts</h3>
+        <p>Once upon a time, in 2005, fonts were always set in <span class="pretty">px</span>.</p>
+        <p>But today we need to account for our billions of devices and a range of pixel densities. So, the most flexible unit for fonts (and a best practice) is now <span class="pretty">ems</span>. <a href="http://www.w3.org/WAI/GL/css2em.htm" target="_blank">Here's a detailed explanation.</a></p>
+        <p>
+          Good to know: The browser default for fonts is <span class="pretty">16px</span>, which is <span class="pretty">1em</span>.</p>
+       
+      </section>
+
+  <section>
+        <h3>Making it Responsive: Fonts</h3>
+        <p>The first thing we need to do is change the fonts<br/> from px to ems.</p>
+        <p>There's a handy formula for this:<br/><span class="pretty">target &#247; context &#61; result</span></p><br/>
+        <p>So if we're converting a 24px font to ems,<br/>and 16px is the default size (context), we calculate:<br/><span class="pretty">24 (target) &#247; 16 (context) &#61; 1.5 (result)</span></p><br/>
+        <p style="font-size: 1.0em;"><span class="pretty">24px</span> is <span class="pretty">1.5</span> times greater than <span class="pretty">16px</span>,<br/>so our font-size is <span class="pretty">1.5em</span>.</p>
+       
+      </section>
+
+      <section>
+        <h3>Making it Responsive: Fonts</h3>
+        <p>For times when you are not in the mood for math, we have <a href="http://pxtoem.com/" target="_blank">pxtoem.com</a></p>
+        <a href="http://pxtoem.com/" target="_blank"><img src="images/px-to-em.png" width="700"/></a>
+      </section>
+
+
+<section>
+
+        <h3>Making it Responsive: Fonts</h3>
+
+        <p>Let's open "styles.css" in Sublime Text.<br/>Find all of the font-sizes that have px and convert them to the correct em sizes.<br/>We'll go through them one by one on the next few slides.</p>
+       
+     <img src = "images/workingstyles.png" width="330"/><br/><br/>
+        <p>Use the formula<br/><span class="pretty">target &#247; context &#61; result</span></p>
+<p>or use the <a href="http://pxtoem.com/" target="_blank">pxtoem.com</a> chart/calculator</p>
+        
+      </section>
+
+      <section>
+
+        <h3>Making it Responsive: Fonts</h3>
+
+        <p>So we can keep track of what we changed, let's comment out the original px font-sizes when we add in our newly calculated em sizes.<br/><br/>Here's our first conversion as an example.<br/>Let's convert the h1 font-size.</p>
+       
+     <img src = "images/1-fontsize.png" width="500"/><br/>
+       
+      </section>
+
+       <section>
+
+        <h3>Making it Responsive: Fonts</h3>
+
+        <p>Let's convert the h2 font-size.</p>
+       
+     <img src = "images/2-fontsize.png" width="500"/><br/>
+       
+      
+
+        <p style="padding-top:25px;">And the .summary p font-size.</p>
+       
+     <img src = "images/3-fontsize.png" width="500"/><br/>
+       
+      </section>
+
+
+       <section>
+
+        <h3>Making it Responsive: Font sizes.</h3>
+
+        <p>And lastly let's convert the aside p and the footer font-sizes.</p>
+       
+     <img src = "images/4-fontsize.png" width="500"/><br/>
+       
+      </section>
+
+
+<section>
+
+        <h3>Wasn't that FUN?</h3>
+
+        <p>It wasn't <em>horrible</em>, at least our fonts are now flexible.</p><p>And now we have a reminder of why it's better to start off with ems right from the start.</p>
+       
+     
+       
+      </section>
+
+      <section>
+
+        <h3>Making it Responsive: A Fluid Grid</h3>
+
+        <p>We still have fixed-width sizing on the structural containers (wrapper, nav, gallery, etc.).<br/><br/>By converting their pixel widths to percentages, we'll be another step closer.</p>
+       
+     
+       
+      </section>
+
+
+      <section>
+
+        <h3>Making it Responsive: A Fluid Grid</h3>
+
+        <p>The same formula we used to convert fonts from px to ems can be used to convert pixel widths to percentages.</p>
+        <p style="font-size: 1.0em;"><span class="pretty">target &#247; context &#61; result</span></p>
+
+         <p>The wrapper around our content is <span class="pretty">900px</span> wide, that's our <em>target</em>. Let's say the layout was designed to be <span class="pretty">960px</span> wide, that's our <em>context</em>. To convert the wrapper to a percentage, we do the math.</p>
+          <p style="font-size: 1.0em;"><span class="pretty">900 &#247; 960 &#61; .09375</span></p>
+<p>Move the decimal over two spots for the percentage.<br/>Our 900px wrapper is now <span class="pretty">93.75&#37;</span></p>
+       
+      </section>
+
+      <section>
+
+        <h3>To save time, we're skipping the math.</h3>
+
+        <p>Since we have a lot of nested containers in our working site, and want to keep this moving, we're going to make some arbitrary conversions and not do all the math on each one.</p><p>We'll use some nice round numbers, which is just fine for our single-page site.</p>
+       
+       
+     
+       
+      </section>
+
+      <section>
+
+       <h3>Making it Responsive: A Flexible Foundation.</h3>
+
+        <p>Let's go back to "styles.css" and start identifying our fixed-width containers.</p>
+        <img src="images/workingstyles.png" width="330px"/>
+      </section>
+
+
+ <section>
+
+        <h3>Making it Responsive: A Flexible Foundation.</h3>
+
+        <p>In order to keep track of what we changed, let's comment out the original pixel widths as we replace them with percentages.<br/><br/>We'll go through them one by one on the next few slides.</p>
+       
+    
+
+       
+      </section>
+
+       <section>
+
+        <h3>Let's convert the wrapper and the header widths.</h3>
+
+<p>On #wrapper we should also change the margin from px to percentage.</p>
+       
+     <img src = "images/2-perc.png" width="450"/>
+
+<br/>
+        <img src = "images/1-perc.png" width="450"/>
+        
+       
+      </section>
+
+      <section>
+
+        <h3>Let's convert the nav and the nav li widths.</h3>
+
+        <img src = "images/3-perc.png" width="450"/><br/>
+       
+     <img src = "images/4-perc.png" width="450"/>
+
+       
+      </section>
+
+       <section>
+
+        <h3>Let's convert the #social and the .summary widths.</h3>
+
+        <img src = "images/5-perc.png" width="450"/><br/>
+       
+     <img src = "images/6-perc.png" width="450"/>
+
+       
+      </section>
+
+       <section>
+
+        <h3>Let's convert the #feature img and the #gallery widths.</h3>
+
+        <img src = "images/7-perc.png" width="450"/><br/>
+       
+     <img src = "images/8-perc.png" width="450"/>
+
+       
+      </section>
+
+       <section>
+
+        <h3>Let's convert the #thumbs li, #thumbs li img, and the aside widths.</h3>
+
+        <img src = "images/9-perc.png" width="450"/><br/>
+
+       
+      </section>
+
+      <section>
+
+        <h3>Let's convert the #footer width and add a max-width to images.</h3>
+
+        <img src = "images/10.png" width="450"/><br/>
+
+       
+     
+
+        <img src = "images/maxwidth.png" width="400"/><br/>
+
+       
+      </section>
+
+      
+
+      <section>
+
+        <h3>Check out your site now!</h3>
+
+        <p>Do things look better? <br/>Let's take some time to get things right before we move on.</p>
+       <p>If you need to catch up, you can copy and paste the styles.css from our finished-responsive-website folder:</p> 
+  <img src = "images/finished-site-folder.png" width="350"/><br/>
+       
+      </section>
+
+      
+
+
+
+
+
+  <!-- Break -->
+     
+
+      <section>
+
+        <h3>Any questions before we jump into Media Queries?</h3>
+
+        
+        <img src="images/lead.jpg" height="400px"/>
+      </section>
+
+
+      <section>
+
+        <h3>Media Queries</h3>
+
+        <p style="text-align: left;">If you've ever created a print stylesheet for a website (media="print") then you're already familiar with the idea of creating a specific stylesheet that comes into play under certain conditions.</p>
+        <img src="images/mq-print.png" height="170px"/>
+      </section>
+      
+
+      <section>
+
+        <h3>If you can write CSS, you can write Media Queries</h3>
+        <p style="text-align: left;">Media Queries are just an extra layer of instructions that work alongside your existing CSS. These instructions come into play when certain constraints are defined:</p>
+        <ul>
+          <li>width and height (browser window or device viewport)</li>
+          <li>orientation (landscape or portrait mode)</li>
+          <li><a href="http://css-tricks.com/snippets/css/retina-display-media-query/" target="_blank">resolution (retina display)</a></li>
+        </ul>
+      </section>
+
+      <section> <h3>Media Queries</h3>
+
+        <p style="text-align: left;">They look only slightly different than regular css, just note the extra set of curly brackets.</p>
+
+        <p><img src="images/new-mq.png" width="900px"/></p>
+        
+      </section>
+
+
+<section> 
+        <h3>So let's write some Media Queries!</h3>
+
+        <p style="text-align: left;">We can make a few small changes to our sample website right now and see what happens.</p><br/>
+
+       <p>Let's go back to our styles.css file.</p>
+        <img src="images/workingstyles.png" width="330px"/>
+
+      </section>
+
+       <section>
+        <h3>Adding Media Queries</h3>
+        <p style="text-align: left;">Since all of the CSS we've written so far looks best on mostly the desktop view, let's customize it a bit for a smaller screen, like a tablet.</p>
+      </section>
+
+ <section>
+        <h3>Adding Media Queries</h3>
+        <p>At the very bottom of our styles.css, type the following:</p>
+        <img src="images/mq1.png" width="450px" />
+      </section>
+
+
+       
+
+
+  <section>
+        <h3>Adding Media Queries</h3>
+        <div>Looking better! Now let's customize it a bit for an even smaller screen, like a phone. Considering phone sizes, let's set it for a width that covers some of the larger phones.</div>
+      </section>
+     
+     <section>
+        <h3>Adding Media Queries</h3>
+        <div>At the very end of our styles.css, type the following:</div>
+        <img src="images/mq22.png" width="650px" />
+      </section>
+
+      <section>
+        <h3>Basics accomplished!</h3>
+                <p style="text-align: left;">Now we have a very basic, responsive website. We could keep adding and adding to this, but we're going to move on to learning about process.</p>
+      </section>
+
+<section>
+
+        <h3>Bonus!</h3>
+
+               <p style="text-align: left;">As our content readjusts at each breakpoint, the change can be abrupt. Though users might not notice it, it's a subtle way to soften the transitions</p> 
+               <p style="text-align: left;">Add the following to the bottom of your css, save, refresh your website, and resize the browser to see the difference:</p>
+  <img src = "images/bonus.png" width="700"/><br/>
+       
+      </section> 
+  
+
+    
+
+          <!-- [start] Starting from scratch -->
+
+      <section>
+        <h3>Starting from scratch: Framework</h3>
+                <p style="text-align: left;">Maybe it turns out you've got a site that's going to be a bit more complex, or you just want to start with a clean slate.<br/><br/>Here's where Responsive Frameworks come in.</p>
+        <ul>
+          <li><a href="http://foundation.zurb.com/" target="_blank">Foundation</a></li>
+          <li><a href="http://www.getskeleton.com/" target="_blank">Skeleton</a></li>
+          <li><a href="http://gumbyframework.com/" target="_blank">Gumby</a></li>
+          <li><a href="http://getbootstrap.com/2.3.2/" target="_blank">Bootstrap</a></li>
+        </section>
+
+        
+
+        <section>
+          <h3>Frameworks give us: The Grid</h3>
+                  <p style="text-align: left;">This is simply a 12-column flexible grid that can scale out to an arbitrary size (defined by the max-width of the row) that's easily nested. The widths are percentages. They've done the math for us!</p>
+          <img src="images/grid.png" width="700px"/>
+        </section>
+
+
+        <section>
+          <h3>Frameworks: Let's take a look at Foundation</h3>
+          <p>Here's a framework I really like.</p>
+          <a href="http://foundation.zurb.com/" target="_blank"><img src="images/zurb.png" width="600px"/></a>
+        </section>
+
+  <section>
+          <h3>Frameworks: Foundation</h3>
+          <p style="text-align: left;">You should already have the Essential package downloaded, but if not, you can download it here:<a href="http://foundation.zurb.com/develop/download.html" target="_blank">foundation.zurb.com/develop/download.html</a></p>
+          <img src="images/download.png" width="600px"/>
+        </section>
+    
+
+
+  <section>
+          <h3>Frameworks: Foundation</h3>
+          <p style="text-align: left;">Let's go to the Foundation Essentials folder we downloaded and open index.html in our browser.</p>
+          <a href="http://foundation.zurb.com/" target="_blank"><img src="images/found_ss.png" width="400px"/></a>
+        </section>
+
+         <section>
+          <h3>Frameworks: Foundation</h3>
+          <p style="text-align: left;">Check out the following chunks of code and their corresponding CSS by doing a right-click inspect:</p>
+          <ul>
+            <li>div class="row"</li>
+             <li>div class="large-12 columns"</li>
+             <li>div class="large-4 medium-4 columns"</li>
+          </ul>
+         <img src="images/found-row.png" width="700px"/>
+        </section>
+
+
+ <section>
+          <h3>Frameworks: Foundation</h3>
+          <p style="text-align: left;">Let's take a look at foundation.css file the Foundation Essentials folder. Open that in Sublime Text, and let's see how they've done their media queries.</p>
+          <img src="images/found-css.png" width="400px"/>
+        </section>
+
+         <section>
+          <h3>Frameworks: Foundation</h3>
+          <p style="text-align: left;">You'll notice their media queries are mixed in with the regular styles, so that they're grouped with other like items. In this case, we're dealing with columns.</p>
+          <img src="images/mix.png" width="500px"/>
+        </section>
+
+
+<section>
+          <h3>Frameworks: Foundation</h3>
+          <p style="text-align: left;">Let's start modifying this page so we can get used to working within the rows and columns of the grid.</p>
+          <p style="text-align: left;">Open index.html in Sublime Text.</p>
+          <img src="images/found_ss.png" width="400px"/>
+        </section>
+
+
+<section>
+          <h3>Frameworks: Foundation</h3>
+          <p style="text-align: left;">Change some text to your own, maybe start with the h1 and h2.</p>
+          
+
+         
+        </section>
+
+        <section>
+          <h3>Frameworks: Foundation</h3>
+          
+           <p style="text-align: left;">Find the spot in the code where there are 3 columns of text. Let's say we want to delete one of them and just have 2 columns.</p>
+
+           <p style="text-align: left;">Since these 3 columns are each given a class of "large-4 medium-4" we have 3 x 4 = 12.</p><p style="text-align: left;">If we delete one of the divs and rename the other two "large-6 medium-6" so that they still add up to 12, see what happens.</p>
+<img src="images/rows.png" width="750px"/>
+         
+        </section>
+
+        <section>
+          <h3>Frameworks: Foundation</h3>
+          <p style="text-align: left;">If we want to change some styling, we should create a new css file so any add-ons will be separate from the existing huge css file.</p>
+          <p style="text-align: left;">Open a new document in Sublime Text and save it in the css folder inside foundation-essentials. Name it whatever you like. Don't forget to link the new css file to your html file.</p>
+          <img src="images/mine.png" width="400px"/>
+         
+        </section>
+
+         <section>
+          <h3>Frameworks: Foundation</h3>
+          <p style="text-align: left;">Try adding some color to these classes, or any other ones that you like.</p>
+          <img src="images/newcss.png" width="400px"/>
+         
+        </section>
+
+        <section>
+          <h3>Frameworks: Foundation</h3>
+          <p style="text-align: left;">Once you get comfortable with the way the columns are nested, you'll soon see how you can adapt your own designs into a page like this Foundation starter page.</p>
+
+          <p style="text-align: left;">There are other downloads that include much more, including a custom download option, so be sure to try those too.</p>
+         
+        </section>
+
+      <!-- Process  -->
+    
+     
+
+
+
+          <section>
+            <h3>Process: It Starts with Mobile First</h3>
+
+            <p style="text-align: left;">Mobile First helps us to:</p>
+            <ul>
+              <li>embrace simplicity</li>
+              <li>get out of our comfort zone and be forced to innovate</li>
+              <li>eliminate the bells and whistles (there's no room for them)</li>
+              <li>prioritize content</li>
+            </ul><br/><br/>
+            <p style="text-align: left;">It makes us better designers and developers, and our users will be grateful for it.</p>
+
+
+          </section>
+
+
+<section>
+            <h3>How to be Mobile First</h3>
+            <p style="text-align: left;">It requires a shift in how we think about content.</p>
+            <p style="text-align: left;">Really it's <em>content first</em>. Presenting only the most relevant content to begin with, so that none of it is treated as fluff that needs to be hidden from users.</p>
+            
+          </section>
+
+          <section>
+            <h3>How to be Mobile First</h3>
+            <p style="text-align: left;">Here's a high-level glance at the Responsive Design and Mobile first process.</p>
+            <img src="images/process.png"/>
+          </section>
+
+
+
+          <section>
+            <h3>Content &amp; Wireframes</h3>
+            <p>Creates a blueprint for designers and devs.</p>
+            <div style="width: 40%; float: left;"> 
+             <ul style="font-size: 80%;">
+              <li style="padding-top: 1.5em;">Requirements gathered</li>
+              <li>Copy is written (thoughtfully!)</li>
+              <li>Wireframes are created</li>
+            </ul>
+          </div>
+          <div style="width: 60%; float: right;"> 
+
+            <img src="images/mockup2.png" width="600"/>
+          </div>
+        </section>
+
+
+        <section>
+            <h3>Prototypes</h3>
+            <p>Great for identifying the pain points before visual design starts.</p>
+            <div style="width: 40%; float: left;"> 
+         
+             <ul style="font-size: 75%;">
+              <li style="padding-top: 1.5em;">Many wireframing tools now support Responsive</li>
+              <li>Responsive frameworks help us quickly create prototypes</li>
+              <li>Interacting with screens in the browser lets you get feedback from others sooner</li>
+              <li>Dramatically reduces time spent in Photoshop</li>
+            </ul>
+          </div>
+          <div style="width: 60%; float: right;"> 
+
+            <img src="images/axure.png" width="500"/>
+          </div>
+        </section>
+
+        
+
+
+
+
+
+        <section>
+          <h3>Designing on paper templates</h3>
+<p>Helps sort out the priority and proximity of content. At the very least, it's an exercise that helps clarify what matters the most.</p>
+          <img src="images/sketching-concept.jpg" width="600" />
+        </section>
+
+
+        
+
+        <section>
+          <h3>Designing with Style Tiles</h3>
+
+
+          <div style="float: left; width: 60%;"><p style="text-align: left;"><span class="pretty">Style Tiles.</span> More refined than a mood board. Less detailed than a website mockup or comp.<br/><br/>The style tile below eventually became the website on the right.</p>
+            <img src="images/styletiles1.jpg" width="380px"/></div>
+
+            <div style="float: right; width: 40%;"> <img src="images/styletiles3.jpg" width="300px"/></div>
+          </section>
+
+          <section>
+          <h3>Designing a PSD Deliverable</h3>
+
+          <img src="images/trucks.jpg" width="600" />
+        </section>
+
+          <section>
+           <h3>Development using Responsive Frameworks</h3>
+           <p style="text-align: left;">After receiving design deliverables (style tiles, mobile/desktop mockups), development starts.</p> 
+           <p style="text-align: left;">The starting point can be a responsive framework, or a responsive template in your CMS of choice.</p><br/>
+           <div style="width: 50%; float: left;">
+             <h5>Frameworks</h5>
+             <ul class="pretty">
+               <li>Foundation</li>
+               <li>Bootstrap</li>
+              <li>HTML5 Boilerplate</li>
+
+             </ul>
+           </div>
+           <div style="width: 50%; float: right;">
+             <h5>CMS Templates</h5>
+             <ul class="pretty">
+
+               <li>WordPress</li>
+               <li>Joomla</li>
+               <li>Concrete5</li>
+
+             </ul>
+           </div>
+
+
+         </section>
+    
+
+
+       
+
+
+  
+
+         <section>
+          <h3>Is there anything that Responsive is NOT?</h3>
+
+          <p style="text-align: left;">Responsive is not a replacement for mobile apps, and is not always the go-to solution.</p>
+          <p  style="text-align: left;">We should assume that people will try to view a website on whatever device they have with them. It's up to us to provide the appropriate solutions for each app, website, and use case.</p>
+
+        </section>
+
+
+
+
+      <section>
+        <h3>This is beyond Responsive</h3>
+
+        <p style="text-align: left;">Sometimes there's another strategy happening, intentional or otherwise. Here's what Target has going on.</p>
+        <p style="text-align: left;">An m-dot mobile site, native app, full website on mobile, Cartwheel:</p>
+        <img src="images/target01.png" width="170px"/>
+        <img src="images/target5.png" width="170px"/><img src="images/target03.png" width="170px"/><img src="images/target04.png" width="170px"/>
+      </section>
+
+
+
+ <section>
+        <h3>Responsivize Responsibly</h3>
+
+        <p  style="text-align: left;">We have a responsibility to do the right thing for our users. It's not an easy job, but you've all taken the first step in helping improve the web just by being here!</p>
+        <p  style="text-align: left;">Go forth and tackle your next project with a fresh perspective!</p>
+
+        <img src="images/fox.jpg" width="600px"/>
+
+      </section>
+
+     <!-- End of workshop -->
+        <section>
+          <h3>Thank you! Questions?</h3>
+          
+          <img src="images/t-rex-sparkler.jpg" alt="you did it!" width="350px" />
+          <p>
+            <a href="mailto:gopixelsgo@gmail.com">aisha.g.blake@gmail.com</a><br/>Twitter: @AishaBlake</p>
+          </section>
+
+
+ 
+
+<!-- Resources -->
+
+<section>
+  <h3>Resources</h3>
+
+<div>Find a complete list here: <a href="http://gopixelsgo.com/girldevelopit/resources.rtf" target="_blank">http://gopixelsgo.com/girldevelopit</a></div>
+
+
+
+</section>
+
+
+
+
+        
+
+        </div>
+        <footer>
+          <div class="copyright">
+            Responsive Design Workshop ~ Girl Develop It ~
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+          </div>
+        </footer>
+      </div>
+
+
+      <script src="reveal/lib/js/head.min.js"></script>
+      <script src="reveal/js/reveal.min.js"></script>
+
+      <script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+       { src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+       { src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+       { src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+       { src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+       { src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+       { src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+       ]
+     });
+
+</script>
+
+</body>
+</html>

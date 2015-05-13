@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)http://css-tricks.com/snippets/css/retina-display-media-query/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <div class="fit-vids-style">­<style>               .fluid-width-video-wrapper {                 width: 100%;                              position: relative;                       padding: 0;                            }                                                                                   .fluid-width-video-wrapper iframe,        .fluid-width-video-wrapper object,        .fluid-width-video-wrapper embed,         .fluid-width-video-wrapper video {           position: absolute;                       top: 0;                                   left: 0;                                  width: 100%;                              height: 100%;                          }                                       </style></div><script src="./retina_files/a.js"></script><script>/*<![CDATA[*/(function(a){function b(a,b){if(+a)return~a||(d.cookie=h+"=; path=/");j=d.createElement(e),k=d.getElementsByTagName(e)[0],j.src=a,b&&(j.onload=j.onerror=b),k.parentNode.insertBefore(j,k)}function c(){n.api||b(l.shift()||-1,c)}if(this.Mobify)return;var d=document,e="script",f="mobify",g="."+f+".com/",h=f+"-path",i=g+"un"+f+".js",j,k,l=[!1,1],m,n=this.Mobify={points:[+(new Date)],tagVersion:[6,1],ajs:"//a.mobify.com/performance/css-tricks-1/a.js"},o=/((; )|#|&|^)mobify-path=([^&;]*)/g.exec(location.hash+"; "+d.cookie);o?(m=o[3])&&!+(m=o[2]&&sessionStorage[h]||m)&&(l=[!0,"//preview"+g+escape(m)]):(l=a()||l,l[0]&&l.push("//cdn"+i,"//files01"+i)),l.shift()?(d.write('<plaintext style="display:none;">'),setTimeout(c)):b(l[0])})(function(){if(/ip(hone|od|ad)|android|blackberry.*applewebkit|bb1\d.*mobile/i.test(navigator.userAgent)){return[1,"//cdn.mobify.com/swift/css-tricks-1/production/mobify.js"]}return[0,Mobify.ajs]})/*]]>*/</script>
+
+	<meta charset="UTF-8">
+
+	<meta name="viewport" content="width=device-width">
+
+	
+	<title>Retina Display Media Query | CSS-Tricks</title>
+
+	<link rel="shortcut icon" href="http://cdn.css-tricks.com/favicon.ico">
+
+	<link rel="apple-touch-icon" href="http://css-tricks.com/apple-touch-icon.png">
+
+	<link rel="search" type="application/opensearchdescription+xml" href="http://css-tricks.com/opensearch.xml" title="CSS-Tricks Search">
+
+	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://feeds.feedburner.com/CssTricks">
+
+	<link rel="author" href="https://plus.google.com/101987072260327250694/posts">
+
+	
+<!-- This site is optimized with the Yoast WordPress SEO plugin v1.4.23 - http://yoast.com/wordpress/seo/ -->
+<meta name="description" content="For including high-res graphics, but only for screens that can make use of them. &quot;Retina&quot; being &quot;2x&quot;: @media (-webkit-min-device-pixel-ratio: 2), (min-reso">
+<link rel="canonical" href="./retina_files/retina.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@Real_CSS_Tricks">
+<meta name="twitter:domain" content="CSS-Tricks">
+<meta name="twitter:creator" content="@Real_CSS_Tricks">
+<meta name="twitter:description" content="For including high-res graphics, but only for screens that can make use of them. &quot;Retina&quot; being &quot;2x&quot;:
+@media 
+(-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) { 
+    /* Retina-specific stuff here */
+}
+Or other highish-res:
+/* 1.25 dpr */
+@media 
+(-webkit-min-device-pixel-ratio: 1.25), 
+(min-resolution: 120dpi){ 
+    /* Retina-specific stuff here */
+}
+
+/* 1.3 dpr */
+@media 
+(-webkit-min-device-pixel-ratio: 1.3), 
+(min-resolution: 124.8dpi){ 
+    /* Retina-specific stuff here */
+}
+
+/* 1.5 dpr */
+@media 
+(-webkit-min-device-pixel-ratio: 1.5), 
+(min-resolution: 144dpi){ 
+    /* Retina-specific stuff here */
+}…
+Old Stuff (don&#39;t">
+<meta name="twitter:title" content="Retina Display Media Query - CSS-Tricks">
+<meta name="twitter:url" content="http://css-tricks.com/snippets/css/retina-display-media-query/">
+<!-- / Yoast WordPress SEO plugin. -->
+
+<link rel="alternate" type="application/rss+xml" title="CSS-Tricks » Retina Display Media Query Comments Feed" href="http://css-tricks.com/snippets/css/retina-display-media-query/feed/">
+<link rel="stylesheet" id="bbp-child-bbpress-css" href="./retina_files/bbpress.css" type="text/css" media="screen">
+<link rel="stylesheet" id="wp-polls-css" href="./retina_files/polls-css.css" type="text/css" media="all">
+<script type="text/javascript" src="./retina_files/jquery.min.js"></script>
+<link rel="shortlink" href="http://css-tricks.com/?p=17757">
+<!-- Better Art Direction Styles -->
+
+
+<style type="text/css">
+.wp-polls .pollbar {
+	margin: 1px;
+	font-size: 13px;
+	line-height: 15px;
+	height: 15px;
+	background-image: url('http://cdn.css-tricks.com/wp-content/plugins/wp-polls/images/default/pollbg.gif');
+	border: 1px solid #ffffff;
+}
+</style>
+<link rel="stylesheet" href="./retina_files/wp-simple-sitemap.css" type="text/css" media="screen">  <script>window.jQuery || document.write('<script src="http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-10/js/jquery.min.js"><\/script>')</script>
+
+      <link rel="stylesheet" href="http://cloud.typography.com/610186/608840/css/fonts.css">
+  
+  <!--[if !IE]><!-->
+  <link rel="stylesheet" href="http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-10/style.css?v1.6">
+  <!--<![endif]-->
+  <!--[if lt IE 9]>
+  <link rel="stylesheet" href="http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-10/css/oldie.css">
+  <![endif]-->
+  <!--[if IE 9]>
+  <link rel="stylesheet" href="http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-10/style.css?v1.2">
+  <![endif]-->
+
+  
+			<script src="./retina_files/comment-reply.js"></script>
+    <script src="./retina_files/showdown-ck.js"></script>
+	
+	
+	
+	
+	
+  
+	
+	
+  
+  
+			<link rel="stylesheet" href="http://cdn.css-tricks.com/wp-content/themes/CSS-Tricks-10/css/snippets.css">
+	
+	
+<script type="text/javascript" async="" src="./retina_files/bsa.js"></script><script type="text/javascript" id="_bsap_js_3469a2a501a9e18091036aa0c89f9dcb" src="./retina_files/s_3469a2a501a9e18091036aa0c89f9dcb.js" async="async"></script><style type="text/css" id="bsa_css">.one{position:relative}.one .bsa_it_ad{display:block;padding:15px;border:1px solid #e1e1e1;background:#f9f9f9;font-family:helvetica,arial,sans-serif;line-height:100%;position:relative}.one .bsa_it_ad a{text-decoration:none}.one .bsa_it_ad a:hover{text-decoration:none}.one .bsa_it_ad .bsa_it_t{display:block;font-size:12px;font-weight:bold;color:#212121;line-height:125%;padding:0 0 5px 0}.one .bsa_it_ad .bsa_it_d{display:block;font-size:11px;color:#434343;font-size:12px;line-height:135%}.one .bsa_it_ad .bsa_it_i{float:left;margin:0 15px 10px 0}.one .bsa_it_p{display:block;text-align:right;position:absolute;bottom:10px;right:15px}.one .bsa_it_p a{font-size:10px;color:#666;text-decoration:none}.one .bsa_it_ad .bsa_it_p a:hover{font-style:italic}</style><script type="text/javascript" async="" src="./retina_files/ga.js"></script><style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none; }[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x; }[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y; }[touch-action="scroll"],[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; }</style><style id="clearly_highlighting_css" type="text/css">/* selection */ html.clearly_highlighting_enabled ::-moz-selection { background: rgba(246, 238, 150, 0.99); } html.clearly_highlighting_enabled ::selection { background: rgba(246, 238, 150, 0.99); } /* cursor */ html.clearly_highlighting_enabled {    /* cursor and hot-spot position -- requires a default cursor, after the URL one */    cursor: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--cursor.png") 14 16, text; } /* highlight tag */ em.clearly_highlight_element {    font-style: inherit !important; font-weight: inherit !important;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow.png");    background-repeat: repeat-x; background-position: top left; background-size: 100% 100%; } /* the delete-buttons are positioned relative to this */ em.clearly_highlight_element.clearly_highlight_first { position: relative; } /* delete buttons */ em.clearly_highlight_element a.clearly_highlight_delete_element {    display: none; cursor: pointer;    padding: 0; margin: 0; line-height: 0;    position: absolute; width: 34px; height: 34px; left: -17px; top: -17px;    background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite.png"); background-repeat: no-repeat; background-position: 0px 0px; } em.clearly_highlight_element a.clearly_highlight_delete_element:hover { background-position: -34px 0px; } /* retina */ @media (min--moz-device-pixel-ratio: 2), (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2) {    em.clearly_highlight_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--yellow@2x.png"); }    em.clearly_highlight_element a.clearly_highlight_delete_element { background-image: url("chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/clearly/images/highlight--delete-sprite@2x.png"); background-size: 68px 34px; } } </style></head>
+
+<body class="page page-id-17757 page-child parent-pageid-3222 page-template page-template-page-snippet-php user-0">
+
+    <script>
+  (function(){
+    var bsa = document.createElement('script');
+       bsa.type = 'text/javascript';
+       bsa.async = true;
+       bsa.src = 'http://s3.buysellads.com/ac/bsa.js';
+    (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+  })();
+  </script>
+  
+  <header id="top" class="top">
+
+  <div class="logo">
+    <a href="http://css-tricks.com/">
+      CSS<span>-Tricks</span>
+    </a>
+  </div>
+
+    <a class="top-treehouse-ad group" href="http://teamtreehouse.com/redirect/css-tricks">
+    <svg version="1.1" class="treehouse-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="606.777px" height="133.209px" viewBox="0 0 606.777 133.209" enable-background="new 0 0 606.777 133.209" xml:space="preserve">
+<g class="treehouse-logo-letter">
+  <path fill="#FFFFFF" d="M169.271,99.972c-11.407,0-16.559-7.819-16.559-18.123V45.511c0-3.588,2.668-6.44,6.164-6.44
+    c3.404,0,6.164,2.852,6.164,6.44v6.255h11.499c3.036,0,5.704,2.3,5.704,5.52c0,3.036-2.668,5.335-5.704,5.335H165.04v18.951
+    c0,4.416,1.932,6.809,5.979,6.809c2.024,0,4.048-0.553,5.704-1.012c4.692-1.104,7.636,1.84,7.636,5.243
+    c0,2.024-1.012,4.14-3.864,5.428C177.275,99.512,172.768,99.972,169.271,99.972z"></path>
+  <path fill="#FFFFFF" d="M222.813,56.458c0,2.484-1.932,5.796-5.796,5.796c-2.116,0-4.14-0.92-6.899-0.828
+    c-3.036,0.092-4.784,1.748-4.784,5.979V93.44c0,3.496-2.667,6.256-6.164,6.256c-3.404,0-6.164-2.76-6.164-6.256V65.106
+    c0-9.567,5.612-15.731,16.191-15.731c3.036,0,6.071,0.276,7.911,0.736C220.881,51.123,222.813,53.423,222.813,56.458z"></path>
+  <path fill="#FFFFFF" d="M270.653,72.742c0,3.588-1.84,6.163-6.348,6.163h-24.471v0.92c0,5.797,4.416,8.924,10.58,8.924
+    c3.312,0,6.715-0.828,9.843-2.023c4.876-1.84,8.096,1.472,8.096,4.875c0,1.748-0.644,3.681-3.128,5.152
+    c-3.404,2.023-9.292,3.22-15.179,3.22c-12.695,0-21.251-8.003-22.171-19.503c-0.276-3.588-0.184-8.647,0-11.5
+    c1.104-11.958,9.66-19.594,21.711-19.594c12.511,0,21.067,8.372,21.067,21.342V72.742z M257.774,70.534
+    c0.644,0,1.012-0.367,1.012-1.104c0.276-5.612-3.22-9.384-9.2-9.384c-6.532,0-9.751,4.14-9.751,10.487H257.774z"></path>
+  <path fill="#FFFFFF" d="M322.633,72.742c0,3.588-1.84,6.163-6.348,6.163h-24.471v0.92c0,5.797,4.416,8.924,10.58,8.924
+    c3.312,0,6.715-0.828,9.843-2.023c4.876-1.84,8.096,1.472,8.096,4.875c0,1.748-0.644,3.681-3.128,5.152
+    c-3.404,2.023-9.292,3.22-15.179,3.22c-12.695,0-21.251-8.003-22.171-19.503c-0.276-3.588-0.184-8.647,0-11.5
+    c1.104-11.958,9.66-19.594,21.711-19.594c12.511,0,21.067,8.372,21.067,21.342V72.742z M309.753,70.534
+    c0.644,0,1.012-0.367,1.012-1.104c0.276-5.612-3.22-9.384-9.2-9.384c-6.532,0-9.751,4.14-9.751,10.487H309.753z"></path>
+  <path fill="#FFFFFF" d="M345.542,52.963c2.024-1.84,6.716-3.588,11.591-3.588c11.684,0,18.584,6.992,18.584,20.147v23.643
+    c0,3.68-2.576,6.531-6.256,6.531c-3.404,0-6.072-2.852-6.072-6.531V70.167c0-5.612-3.22-8.74-8.279-8.74
+    c-3.863,0-7.636,1.748-9.567,3.864v28.058c0,3.496-2.576,6.348-6.071,6.348c-3.404,0-6.256-2.852-6.256-6.348V39.531
+    c0-3.588,2.668-6.348,6.163-6.348c3.404,0,6.164,2.76,6.164,6.348V52.963z"></path>
+  <path fill="#FFFFFF" d="M408.562,99.972c-12.052,0-21.159-7.728-22.079-18.675c-0.275-3.68-0.275-9.476,0-13.155
+    c0.92-11.04,10.027-18.767,22.079-18.767c12.144,0,21.067,7.728,21.987,18.767c0.275,3.68,0.275,9.384,0,13.063
+    C429.629,92.245,420.705,99.972,408.562,99.972z M418.312,70.074c-0.275-5.244-3.955-8.923-9.751-8.923s-9.384,3.68-9.844,8.923
+    c-0.185,2.483-0.185,6.808,0,9.2c0.46,5.243,4.048,8.923,9.844,8.923s9.384-3.68,9.751-8.923
+    C418.497,76.881,418.497,72.557,418.312,70.074z"></path>
+  <path fill="#FFFFFF" d="M441.312,56.183c0-3.68,2.209-6.532,6.072-6.532c3.496,0,6.256,2.852,6.256,6.532v23.458
+    c0,5.52,3.588,8.556,8.832,8.556c4.047,0,7.083-1.196,9.016-2.392V55.999c0-3.496,2.575-6.348,6.163-6.348
+    c3.403,0,6.163,2.852,6.163,6.348v34.406c0,2.115-0.551,3.312-2.207,4.324c-2.852,2.023-9.568,5.243-19.411,5.243
+    c-13.247,0-20.884-7.175-20.884-20.147V56.183z"></path>
+  <path fill="#FFFFFF" d="M532.391,83.965c0,10.303-8.556,16.007-19.227,16.007c-8.648,0-14.168-2.483-17.572-5.335
+    c-2.207-1.84-2.852-5.336-1.104-7.637c1.84-2.483,4.968-3.035,8.004-1.104c2.852,1.84,6.623,3.035,10.947,3.035
+    c4.783,0,6.992-1.747,6.992-4.23c0-2.024-1.473-3.404-5.336-4.324c-3.312-0.736-3.221-0.645-6.809-1.564
+    c-7.543-1.932-13.431-6.163-13.431-14.075c0-9.936,8.003-15.363,18.767-15.363c5.796,0,11.775,1.472,14.996,4.14
+    c2.668,2.208,2.483,5.979,0.551,8.188c-1.84,2.024-4.967,2.3-8.003,0.736c-2.392-1.196-5.612-2.024-8.003-2.024
+    c-4.601,0-6.532,1.748-6.532,3.956c0,1.932,1.38,3.22,5.52,4.14l6.532,1.472C527.883,72.19,532.391,76.698,532.391,83.965z"></path>
+  <path fill="#FFFFFF" d="M583.45,72.742c0,3.588-1.84,6.163-6.348,6.163h-24.471v0.92c0,5.797,4.415,8.924,10.579,8.924
+    c3.312,0,6.716-0.828,9.844-2.023c4.876-1.84,8.096,1.472,8.096,4.875c0,1.748-0.645,3.681-3.128,5.152
+    c-3.403,2.023-9.292,3.22-15.179,3.22c-12.695,0-21.252-8.003-22.172-19.503c-0.275-3.588-0.184-8.647,0-11.5
+    c1.104-11.958,9.66-19.594,21.711-19.594c12.512,0,21.067,8.372,21.067,21.342V72.742z M570.57,70.534
+    c0.645,0,1.013-0.367,1.013-1.104c0.276-5.612-3.22-9.384-9.2-9.384c-6.531,0-9.751,4.14-9.751,10.487H570.57z"></path>
+</g>
+<g class="treehouse-logo-letter">
+  <path fill="#FFFFFF" d="M593.32,56.023c0,0.63-0.48,1.11-1.11,1.11c-0.659,0-1.14-0.51-1.14-1.11v-5.16h-1.68
+    c-0.57,0-1.051-0.48-1.051-1.05c0-0.63,0.48-1.08,1.051-1.08h5.549c0.57,0,1.051,0.45,1.051,1.08c0,0.57-0.48,1.05-1.051,1.05
+    h-1.619V56.023z M600.1,49.963l0.96,4.2l0.99-4.2c0.18-0.84,0.899-1.35,1.649-1.35c0.871,0,1.561,0.51,1.74,1.56l0.87,5.52
+    c0.12,0.66-0.12,1.32-0.78,1.44c-0.779,0.15-1.289-0.3-1.38-0.96l-0.6-4.65l-1.08,4.35c-0.21,0.75-0.66,1.26-1.41,1.26
+    c-0.69,0-1.17-0.45-1.409-1.26l-1.08-4.38l-0.601,4.68c-0.09,0.66-0.6,1.11-1.38,0.96c-0.66-0.12-0.9-0.78-0.779-1.44l0.869-5.49
+    c0.18-1.08,0.9-1.59,1.74-1.59C599.199,48.613,599.92,49.123,600.1,49.963z"></path>
+</g>
+<path fill="#69C773" d="M108.197,24.309c-4.414-2.496-11.464,1.518-15.745,8.964L84.7,46.756
+  c-2.832,5.606-2.443,12.281,1.149,17.434l0.226,0.324c3.592,5.153,8.408,9.917,10.002,11.614c0.936,1,1.653,2.232,2.048,3.643
+  c1.309,4.682-1.424,9.537-6.104,10.848c-4.682,1.309-9.539-1.424-10.848-6.105c-0.329-1.174-0.402-2.36-0.254-3.499
+  c0.251-1.934-0.369-5.083-3.143-8.177c-2.773-3.092-8.441,2.749-10.272,8.756l-0.086,0.275c-1.833,6.007-2.99,11.25-2.644,11.754
+  c0.207,0.301,0.397,0.617,0.573,0.946c2.571,4.839,0.734,10.845-4.104,13.417s-10.846,0.734-13.417-4.104
+  c-2.572-4.84-0.734-10.845,4.104-13.417c0.216-0.115,0.437-0.222,0.658-0.32c0.37-0.162,1.417-2.688,2.327-5.67
+  c0.911-2.983,1.648-5.4,1.648-5.4c0.098-0.317,0.182-0.632,0.259-0.943l4.896-17.482l-5.237,10.75
+  c-0.622-2.041-1.647-2.113-3.895-0.506c-1.355,0.969-3.596,2.879-4.691,3.662c-2.055,1.471-3.775,4.327-4.686,6.078
+  c-0.535,1.029-1.286,1.971-2.245,2.746c-3.749,3.043-9.255,2.469-12.296-1.279c-3.042-3.748-2.469-9.254,1.28-12.295
+  c1.099-0.893,2.349-1.475,3.644-1.756c2.203-0.478,9.693-5.054,14.207-8.283c0.808-0.579,1.486-1.125,2.037-1.632l12.05-9.152
+  l-10.494,5.672c0,0-1.068-0.108-2.377,0.037c-3.841,0.426-7.798,0.967-8.545,1.918c-0.441,0.562-0.967,1.073-1.577,1.51
+  c-3.502,2.523-8.388,1.729-10.911-1.775c-2.524-3.503-1.729-8.39,1.774-10.911c1.446-1.042,3.125-1.517,4.777-1.471
+  c2.808,0.077,10.201,1.576,16.384,0.48l1.589-0.281c6.185-1.096,13.588-6.48,16.54-12.026c0,0,2.888-5.073,6.452-11.333
+  c3.564-6.258,3.3-13.115-0.587-15.313l-7.041-3.98c-3.551-2.008-9.365-2.011-12.92-0.006L6.462,28.835
+  C2.908,30.838,0,35.817,0,39.897v53.416c0,4.08,2.908,9.059,6.462,11.062l48.486,27.335c3.555,2.004,9.369,2,12.92-0.008
+  l48.321-27.318c3.553-2.009,6.458-6.99,6.458-11.07V39.897c0-4.08-2.906-9.063-6.458-11.07
+  C116.189,28.827,112.61,26.804,108.197,24.309z"></path>
+</svg>
+    <div class="treehouse-slogan">
+      <span class="dreams">Make your dreams come true</span>
+      <span class="dash">—</span>
+      <strong class="love">love what you do.</strong>
+    </div>
+  </a>
+  
+  <section class="search" role="search">
+
+    <div class="open-search">
+      <a href="http://css-tricks.com/snippets/css/retina-display-media-query/#" title="Show search box" role="button">
+         <span data-icon="m" aria-hidden="true"></span>
+         <span class="screen-reader">Show search box</span>
+      </a>
+    </div>
+
+    <div class="close-search">
+      <form id="search-form" action="http://css-tricks.com/search-results/">
+
+        <div>
+          <label for="q" id="search-label" class="screen-reader">Search</label>
+          <input aria-labelledby="search-label" id="q" type="search" name="q" class="search-field" placeholder="Search terms..." value="">
+          <input type="submit" value="Search" class="button search-button">
+        </div>
+
+        <div class="search-parts">
+          <strong>Search in:</strong>
+          <a data-url="/search-results/" class="active">All</a>
+          <a data-url="/search-results/articles/">Articles</a>
+          <a data-url="/search-results/forums/">Forums</a>
+          <a data-url="/search-results/snippets/">Snippets</a>
+          <a data-url="/search-results/video/">Videos</a>
+
+          <a href="http://css-tricks.com/snippets/css/retina-display-media-query/#" id="x-search" class="x-search">✕</a>
+        </div>
+
+      </form>
+    </div>
+
+  </section>
+
+</header>
+  <div class="page-wrap">
+
+    <nav class="main-nav" id="main-nav">
+  <a href="http://css-tricks.com/" class="home">
+    <span data-icon="" aria-hidden="true"></span>Home
+  </a>
+  <a href="http://css-tricks.com/forums/" class="forums">
+    <span data-icon="9" aria-hidden="true"></span>Forums
+  </a>
+  <a href="http://css-tricks.com/snippets/" class="snippets">
+    <span data-icon="Q" aria-hidden="true"></span>Snippets
+  </a>
+  <a href="http://css-tricks.com/gallery/" class="gallery">
+    <span data-icon="p" aria-hidden="true"></span>Gallery
+  </a>
+  <a href="http://css-tricks.com/video-screencasts/" class="videos">
+    <span data-icon="q" aria-hidden="true"></span>Videos
+  </a>
+  <a href="http://css-tricks.com/almanac/" class="almanac">
+    <span data-icon="ó" aria-hidden="true"></span>Almanac
+  </a>
+  <a href="http://css-tricks.com/downloads/" class="demos">
+    <span data-icon="w" aria-hidden="true"></span>Demos
+  </a>
+  <a href="http://css-tricks.com/lodge/" class="lodge">
+    <span data-icon="6" aria-hidden="true"></span>Lodge
+  </a>
+
+
+  <a href="http://css-tricks.com/snippets/css/retina-display-media-query/#main-nav" class="show-hide-navigation" id="show-hide-navigation">
+    Navigation 'n' Search
+  </a>
+</nav>
+<div class="snippets-wrap">
+
+	<div class="snippets-title-wrap">
+		<h1 class="snippets-title">
+			Snippets
+			<a href="http://css-tricks.com/snippets/"></a>
+		</h1>
+		<a class="illustrator-link" href="http://reaganray.com/" style="display: none;">Illustration by Reagan Ray</a>
+	</div>
+
+	<nav class="breadcrumbs" id="snippets-breadcrumbs">
+	  <span><span xmlns:v="http://rdf.data-vocabulary.org/#"><span typeof="v:Breadcrumb"><a href="http://css-tricks.com/" rel="v:url" property="v:title">Home</a></span> » <span typeof="v:Breadcrumb"><a href="http://css-tricks.com/snippets/" rel="v:url" property="v:title">Code Snippets</a></span> » <span typeof="v:Breadcrumb"><a href="http://css-tricks.com/snippets/css/" rel="v:url" property="v:title">CSS</a></span> » <span typeof="v:Breadcrumb"><strong class="breadcrumb_last" property="v:title">Retina Display Media Query</strong></span></span></span>	</nav>
+
+	<div class="grid group">
+
+		<section class="blog-posts grid-2-3">
+
+			<article class="module" id="post-17757">
+
+		    <h1>Retina Display Media Query</h1>
+
+		    <p class="meta">
+					Last updated on:
+					<time datetime="2013-02-14">February 14, 2013</time>
+				</p>
+
+				<p>For including high-res graphics, but only for screens that can make use of them. "Retina" being "2x":</p>
+<pre rel="CSS" class=" language-css"><code class=" language-css"><span class="token selector">@media 
+(-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) </span><span class="token punctuation">{</span> 
+    <span class="token comment" spellcheck="true">/* Retina-specific stuff here */</span>
+<span class="token punctuation">}</span></code></pre>
+<p>Or other highish-res:</p>
+<pre rel="CSS" class=" language-css"><code class=" language-css"><span class="token comment" spellcheck="true">/* 1.25 dpr */</span>
+<span class="token selector">@media 
+(-webkit-min-device-pixel-ratio: 1.25), 
+(min-resolution: 120dpi)</span><span class="token punctuation">{</span> 
+    <span class="token comment" spellcheck="true">/* Retina-specific stuff here */</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* 1.3 dpr */</span>
+<span class="token selector">@media 
+(-webkit-min-device-pixel-ratio: 1.3), 
+(min-resolution: 124.8dpi)</span><span class="token punctuation">{</span> 
+    <span class="token comment" spellcheck="true">/* Retina-specific stuff here */</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">/* 1.5 dpr */</span>
+<span class="token selector">@media 
+(-webkit-min-device-pixel-ratio: 1.5), 
+(min-resolution: 144dpi)</span><span class="token punctuation">{</span> 
+    <span class="token comment" spellcheck="true">/* Retina-specific stuff here */</span>
+<span class="token punctuation">}</span></code></pre>
+<h3>Old Stuff (don't use, keeping for posterity)</h3>
+<pre rel="CSS" class=" language-css"><code class=" language-css"><span class="token selector">@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1) </span><span class="token punctuation">{</span> 
+  
+  <span class="token comment" spellcheck="true">/* Retina-specific stuff here */</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>This is more future proof...</p>
+<pre rel="CSS" class=" language-css"><code class=" language-css"><span class="token selector">@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) </span><span class="token punctuation">{</span> 
+  
+  <span class="token comment" spellcheck="true">/* Retina-specific stuff here */</span>
+
+<span class="token punctuation">}</span></code></pre>
+<p>Notes:</p>
+<ul>
+<li>The super weird <code>min--moz-device-pixel-ratio</code> is probably a bug, might wanna put in <code>-moz-min-device-pixel-ratio</code> also in case they fix it but leave it prefixed.</li>
+<li>Here's the <a href="http://www.w3.org/TR/css3-values/#resolution">spec on resolution units</a>.</li>
+</ul>
+<p>Example:</p>
+<p>Let's say you had three major breakpoints in a design. This design also had a large background graphic and you wanted it looking it's best on any screen (retina or not) and not waste any bandwidth. You'd set up 6 media queries, one for each breakpoint and one for each one of those breakpoints on retina. Then you'd override the background image all the way down.</p>
+<pre rel="CSS" class=" language-css"><code class=" language-css"><span class="token atrule">@media only screen and (min-width: 320px) </span><span class="token punctuation">{</span>
+
+  <span class="token comment" spellcheck="true">/* Small screen, non-retina */</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token selector">@media
+only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 320px),
+only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 320px),
+only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 320px),
+only screen and (        min-device-pixel-ratio: 2)      and (min-width: 320px),
+only screen and (                min-resolution: 192dpi) and (min-width: 320px),
+only screen and (                min-resolution: 2dppx)  and (min-width: 320px) </span><span class="token punctuation">{</span> 
+
+  <span class="token comment" spellcheck="true">/* Small screen, retina, stuff to override above media query */</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token atrule">@media only screen and (min-width: 700px) </span><span class="token punctuation">{</span>
+
+  <span class="token comment" spellcheck="true">/* Medium screen, non-retina */</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token selector">@media
+only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 700px),
+only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 700px),
+only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 700px),
+only screen and (        min-device-pixel-ratio: 2)      and (min-width: 700px),
+only screen and (                min-resolution: 192dpi) and (min-width: 700px),
+only screen and (                min-resolution: 2dppx)  and (min-width: 700px) </span><span class="token punctuation">{</span> 
+
+  <span class="token comment" spellcheck="true">/* Medium screen, retina, stuff to override above media query */</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token atrule">@media only screen and (min-width: 1300px) </span><span class="token punctuation">{</span>
+
+  <span class="token comment" spellcheck="true">/* Large screen, non-retina */</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token selector">@media
+only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 1300px),
+only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 1300px),
+only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 1300px),
+only screen and (        min-device-pixel-ratio: 2)      and (min-width: 1300px),
+only screen and (                min-resolution: 192dpi) and (min-width: 1300px),
+only screen and (                min-resolution: 2dppx)  and (min-width: 1300px) </span><span class="token punctuation">{</span> 
+
+  <span class="token comment" spellcheck="true">/* Large screen, retina, stuff to override above media query */</span>
+
+<span class="token punctuation">}</span></code></pre>
+
+        <p><a href="http://www.brettjankord.com/2012/11/28/cross-browser-retinahigh-resolution-media-queries/">Reference URL</a>
+			</p></article>
+
+      			<div id="bsap_1250418" class="bsap_1250418 bsap"><div class="bsa_it one"><div class="bsa_it_ad ad1 odd" id="bsa_3305506"><a href="http://stats.buysellads.com/click.go?z=1250418&b=3305506&g=&s=&sw=1280&sh=800&br=chrome,32,mac&r=0.6008952842094004&link=http://srv.buysellads.com/direct/click/track/yes/x/G6NDC27ICWAI627ICYA4YK7UCKBILKJWFTSDC" onmouseover="window.status = &#39;http://srv.buysellads.com/direct/click/track/yes/x/G6NDC27ICWAI627ICYA4YK7UCKBILKJWFTSDC&#39;; return true;" onmouseout="window.status=&#39;&#39;; return true;" target="_blank"><span class="bsa_it_i"><img src="./retina_files/G6NDC27ICWAI627ICYA4YK7UCKBILKJWFTSDC" width="120" height="90" alt="Try Cloud Accounting Free" scale="0"></span></a><a href="http://stats.buysellads.com/click.go?z=1250418&b=3305506&g=&s=&sw=1280&sh=800&br=chrome,32,mac&r=0.4994065766222775&link=http://srv.buysellads.com/direct/click/track/yes/x/G6NDC27ICWAI627ICYA4YK7UCKBILKJWFTSDC" onmouseover="window.status = &#39;http://srv.buysellads.com/direct/click/track/yes/x/G6NDC27ICWAI627ICYA4YK7UCKBILKJWFTSDC&#39;; return true;" onmouseout="window.status=&#39;&#39;; return true;" target="_blank"><span class="bsa_it_t">Try Cloud Accounting Free</span><span class="bsa_it_d">Sign up for your FREE trial with FreshBooks &amp; join 5 million who bill painlessly</span></a><div style="clear:both"></div></div><div class="bsa_it_ad ad2 even" id="bsa_542319"><a href="http://stats.buysellads.com/click.go?z=1250418&b=542319&g=&s=&sw=1280&sh=800&br=chrome,32,mac&r=0.8463638126850128&link=http://www.foxycart.com/?utm_source=buysellads&utm_medium=banner&utm_campaign=css-tricks&utm_content=120x90_done_right" onmouseover="window.status = &#39;http://www.foxycart.com/?utm_source=buysellads&amp;utm_medium=banner&amp;utm_campaign=css-tricks&amp;utm_content=120x90_done_right&#39;; return true;" onmouseout="window.status=&#39;&#39;; return true;" target="_blank"><span class="bsa_it_i"><img src="./retina_files/34135-1282003972.gif" width="120" height="90" alt="Easy + Powerful Ecommerce" scale="0"></span></a><a href="http://stats.buysellads.com/click.go?z=1250418&b=542319&g=&s=&sw=1280&sh=800&br=chrome,32,mac&r=0.6330595195759088&link=http://www.foxycart.com/?utm_source=buysellads&utm_medium=banner&utm_campaign=css-tricks&utm_content=120x90_done_right" onmouseover="window.status = &#39;http://www.foxycart.com/?utm_source=buysellads&amp;utm_medium=banner&amp;utm_campaign=css-tricks&amp;utm_content=120x90_done_right&#39;; return true;" onmouseout="window.status=&#39;&#39;; return true;" target="_blank"><span class="bsa_it_t">Easy + Powerful Ecommerce</span><span class="bsa_it_d">FoxyCart was built to integrate, regardless of your tools or CMS. Find out more.</span></a><div style="clear:both"></div></div><span class="bsa_it_p"><a href="http://buysellads.com/buy/detail/1098/zone/1250418?utm_source=site_1098&utm_medium=website&utm_campaign=imagetext&utm_content=zone_1250418">ads by BSA</a></span></div></div>
+      
+			<section id="comments">
+
+
+
+	<h1 class="h2 comments-title">
+		<span aria-hidden="true" data-icon="9"></span>Comments
+	</h1>
+
+	<ol class="commentlist group">
+		
+		<li class="comment even thread-even depth-1" id="li-comment-186942">
+
+      <div class="grid group nopadding comment-wrap" id="comment-186942">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/729edf889ced7863dedba95452272bca" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/729edf889ced7863dedba95452272bca?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://hugogiraudel.com/" rel="external nofollow" class="url">Hugo Giraudel</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-186942"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2012-08-16T00:58:23+00:00">August 16, 2012</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Is the Mozilla team aware of the typo in the declaration ?</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=186942#respond" onclick="return addComment.moveForm(&quot;comment-186942&quot;, &quot;186942&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-187005">
+
+      <div class="grid group nopadding comment-wrap" id="comment-187005">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/b35e171b95e5103f165781031520b044" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/b35e171b95e5103f165781031520b044?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Benoit</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-187005"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2012-08-16T09:06:00+00:00">August 16, 2012</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>the dev team is aware of it and as of firefox 16 they recommend exactly what is in the future proof version above.</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=187005#respond" onclick="return addComment.moveForm(&quot;comment-187005&quot;, &quot;187005&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment even thread-even depth-1" id="li-comment-187406">
+
+      <div class="grid group nopadding comment-wrap" id="comment-187406">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/077759697415f3b8128e62fd7b5c4b8e" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/077759697415f3b8128e62fd7b5c4b8e?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://seanjacob.com/" rel="external nofollow" class="url">Sean Jacob</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-187406"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2012-08-20T03:17:34+00:00">August 20, 2012</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Will we need to use media queries for non retina displays so the retina displays don’t download background images twice?</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=187406#respond" onclick="return addComment.moveForm(&quot;comment-187406&quot;, &quot;187406&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class="children">
+
+		<li class="comment byuser comment-author-chriscoyier-2 bypostauthor odd alt depth-2" id="li-comment-187453">
+
+      <div class="grid group nopadding comment-wrap" id="comment-187453">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/8081b26e05bb4354f7d65ffc34cbbd67" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://chriscoyier.net/" rel="external nofollow" class="url">Chris Coyier</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-187453"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2012-08-20T09:11:46+00:00">August 20, 2012</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Yes, that would be a good idea.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment even depth-2" id="li-comment-188331">
+
+      <div class="grid group nopadding comment-wrap" id="comment-188331">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/f37330d2138bd9a08eb23ad348eb64cf" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/f37330d2138bd9a08eb23ad348eb64cf?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://jenkinshill.net/" rel="external nofollow" class="url">Ryan Lombardo</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-188331"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2012-08-27T12:26:28+00:00">August 27, 2012</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>But then devices without pixel-ratio (or any media query) support won’t see your “normal” resolution styles?</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-188859">
+
+      <div class="grid group nopadding comment-wrap" id="comment-188859">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/c6dc7b48f7ff45ef577570c2605731e7" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/c6dc7b48f7ff45ef577570c2605731e7?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://rovomedia.com/" rel="external nofollow" class="url">Rob</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-188859"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2012-08-30T14:00:17+00:00">August 30, 2012</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>These are great snippets, and making good use of them. </p>
+<p>But thinking about this a bit more,  iIsn’t this a bit of a Wild Goose Chase? Where does this end? There are consumer LCDs entering the marktet capable of 4k and 8K resolution.  Is there a better solution to support this wide range of DPIs quickly approaching?</p>
+<p>Is SVG the only viable future-friendly solution?</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=188859#respond" onclick="return addComment.moveForm(&quot;comment-188859&quot;, &quot;188859&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class="children">
+
+		<li class="comment even depth-2" id="li-comment-196052">
+
+      <div class="grid group nopadding comment-wrap" id="comment-196052">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/0f8091a9f3b521052bcc2d509baa8619" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/0f8091a9f3b521052bcc2d509baa8619?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://www.mashappslabs.com/" rel="external nofollow" class="url">Ady Ngom</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-196052"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2012-10-09T13:14:13+00:00">October 9, 2012</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I second your argument Rob this is just maddening, em should be the standard for font management and svg the same for images, the web is just a collection of assembled hacks  and there seems to be no going back. It was fun at times but its becoming annoying to say the least.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment odd alt depth-2" id="li-comment-219910">
+
+      <div class="grid group nopadding comment-wrap" id="comment-219910">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/57154192dc3d169b07dffafeff23ff2b" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/57154192dc3d169b07dffafeff23ff2b?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://return.tc/" rel="external nofollow" class="url">Joel</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-219910"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2012-11-23T09:58:06+00:00">November 23, 2012</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I believe the web has always been an assembly of hacks! Remember when tables were used build layouts? Images to display good typography?</p>
+<p>In many ways, we’re now less hack-ey than ever!</p>
+<p>(And yeah, SVG and icon fonts have an exciting future for graphics but not photos.)</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		<li class="comment even thread-even depth-1" id="li-comment-199889">
+
+      <div class="grid group nopadding comment-wrap" id="comment-199889">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/6af4c5bfb925efd6e420be50db9fa6ad" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/6af4c5bfb925efd6e420be50db9fa6ad?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Tom</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-199889"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2012-10-22T16:03:46+00:00">October 22, 2012</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Would you want to serve the same images to 1.5x screen ratios? There’s some android devices out here with weird ratios, I’d usually spec 2x images to everything from a 1.5 ratio up and contain them with background-size.</p>
+<p>As someone pointed out this method also requires some thought as to how you’re going to support older browsers without media queries…. Mobile first default, IE stylesheets, or feature detected classes perhaps? (I favor the latter)</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=199889#respond" onclick="return addComment.moveForm(&quot;comment-199889&quot;, &quot;199889&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class="children">
+
+		<li class="comment odd alt depth-2" id="li-comment-201570">
+
+      <div class="grid group nopadding comment-wrap" id="comment-201570">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/34c026e8532a4260747d3818ae7e78df" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/34c026e8532a4260747d3818ae7e78df?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Andrew</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-201570"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2012-10-28T01:44:31+00:00">October 28, 2012</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I thought long and hard about that until I found some JS out on the web that will basically add media query support to our grandpa holding up the fast lane… IE.</p>
+<p>I start out by developing general base styles and make sure everything is decent between 1024-1280px wide, as this low-res is likely to be found on those who still use old IE. I set the body to max-width of 1280 so it stops scaling if old IE is running on a larger screen. Then, I set max-width back to 100% in a media query to let it use all the real-estate available. I add the JavaScript I mentioned above, then close IE immediately and discontinue any tweaking for it and begin building for real browsers. In the day that web clients want basically four interfaces in one, it’s just not feasible to assume you can build code for phones, tablets, SD, HD, “retina” iPads (seriously… people who buy iPads have no use for 3000px displays – this is ridiculous – they use them for Facebook) AND on top of all of it, support Internet Explorer 7? I get it, it’s all supposed to be backwards-compatible but it’s not.</p>
+<p>If a client asks for IE8 support on top of all of the above, we have to charge more because of the significant amount of time it adds to the project. If they also throw IE7 in there, we take 1.5x the additional IE8 support cost, and that’s their legacy browser support cost. Usually, when we do user analysis and look at trends, they realize that a.) legacy IE is “dead enough”, b.) the cost to tweak and hack everything to display as designed/well on old IE is nowhere near worth the time, investment or code clutter because, c.) someone on IE7 clearly doesn’t care/notice the web looks/works like crap to them (or else they would have upgraded by now) and/or don’t know how to use a computer well enough to find web information and aren’t going to effectively receive the purpose of the site, if not are lost or aimlessly browsing. The only other people who are on old IE are possibly corporate workers at companies with poor IT leadership who lock users down to old IE7 to “ensure security” (WHAT?!) or have an old web app coded by careless fools that only works in IE7 (and haven’t found out how to work compatibility mode in IE9.) Keeping in mind that this corporate user is very, very rare, doing anything beyond the bases to support IE is beating a dead horse. Businesses so cheap they can’t ditch a web app they bought in 2001 (that’s probably never worked and held back workflow the entire 10 years they’ve had it) are probably not after a modern HTML5 responsive web app or anything that would require marketing with such a website. And if they are, they’ll get the information they need – just not how your designer wanted it. You just can’t blast out the timeline to support every ancient technology in the world. If you build it right to start with, it will support old IE “well-enough” to provide information – which is what the web is for. If we’re going to support IE7, what’s stopping a client from asking for AOL support. Most are simply unaware of the required work until they see the longer timeline &amp; legacy costs. Makes no sense when all that work is done and they still have a crappy experience because they haven’t upgraded. If anything, put a message in the footer saying it won’t display properly because they haven’t bothered to upgrade yet.</p>
+<p>IE sucking behind, you know what also sucks? This BS:</p>
+<p>-webkit-min-device-pixel-ratio: 2<br>
+min–moz-device-pixel-ratio: 2<br>
+-o-min-device-pixel-ratio: 2/1<br>
+min-device-pixel-ratio: 2</p>
+<p>and now that Windows 8 is out and IE10 is available, we get another:<br>
+-ms-min-device-pixel-ratio: 2</p>
+<p>And I want to slap Mozilla for making some random declarations different than the rest. Also love how Opera uses the webkit conditionals because “web developers are being lazy and not including all of them.” First off, it is ridiculous to blame web devs for omitting code when the code is there… five effing times, and you’re just choosing not to read the base declaration because it’s not “standardized” yet, and W3C’s CSS people need to get a clue and start doing rolling standards with CSS as they had to with HTML, and second of all, no one uses freaking Opera. I omit Opera on purpose, bitches. Don’t act like I’m lazy when really your usage share on my analytics sheets are 0.2%. The lone Opera user that probably didn’t even speak the same language and accidentally wound up on that page had to see the fallback experience. Ohh no! Big deal. Don’t care.</p>
+<p>Most of the time when I only include webkit conditionals it’s because the declaration is targeting mobile devices. With that statement, you can hit the Droids, iOS and Blackberrys with one punch. So good job Opera, you’re applying styling that’s meant for an iPhone. Fail. Yes, I know Mozilla makes a Firefox for Android that barely functions, Opera has like 15 browsers in the Android market that no one uses and has made browsers for various ancient handheld technology that’s not CSS3 capable, nor used anymore, nor displayed large enough on the hardwares two-pixel screen to show anything but your web’s logo. I’ll only hack my code to pieces if the usage numbers are there to back it, and IE on mobile hasn’t even acquired enough users for me to care to add 500 lines of “-ms-stupid-conditional-code-killer” with the other mobile declarations. Don’t talk to me about lazy web developers when CSS has taken on 5 times as much code to be authored because of this and causes nonstop issues such as Mozilla’s inability to stay with the format of the rest. No, we aren’t enjoying having to Google what every browser’s little hack is called for every little attribute. No, I’m not including all of that code for browsers that are used so little that I don’t even bother testing in them. Go ahead and read the -webkit- declaration Opera, just remember it doesn’t matter because when it comes to my users, no one will see it. I don’t want to hear the “oh Opera just said a lot of developers don’t know they’re forge…” because that’s BS too. No one forgets it. Many remove it from code snippets they paste in from tutorials. This is why we build fallbacks. Didn’t forget. Not lazy. Don’t care.</p>
+<p>I cannot believe we are still having to do this, and I’m sure in the future we’ll be fighting about when it’s appropriate NOT to keep doing this, but one thing’s for sure – I want to punch some people in the face for not addressing developers issues on the basis of standardizing the same way we did in the 2000s… back when the web was broken and hacked to pieces with sh<em>t code. The browsers are ready because we’ve been using it already. Our clients are ready, they’ve been demanding it for years already. Users are ready, they’ve got it on 4-inch screens already. Many, many new CSS specs are ready &amp; waiting for standardization. To me, these are already standardized because they display the same across all browsers and are used in mass across the web. If I hear “backwards compatible” as I hack out 500 lines of code into 2500 to support the technology that’s actually being used today, I’ll kill someone. Get a clue. Electronics manufacturers don’t make the technology to last longer than 5 years (two if we’re talking about phones or Macbooks) and marketing directors to information archivists alike don’t give a flying crap that some ’90s technology that’s in a landfill by now doesn’t recognize their CSS. If it doesn’t recognize it, it will ignore that declaration, life moves on and in the end, no one even knew the difference, and if they did – they didn’t give a sh</em>t, if they did give a sh*t, they wouldn’t be trying to browse the web on a god damned Wii. Information is in the markup, if that’s there, then the web has done its job. I understand their logic, but I just think they have broken the web once again by forcing major version standardization, not understanding the real-world and how the web they’re working on is actually managed and are moving several-dozen times slower than the technology itself. Their little experimental hack schema has become a permanent part of the next decade of CSS and has already started to break things.</p>
+<p>Lazy developers… screw Opera.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-222910">
+
+      <div class="grid group nopadding comment-wrap" id="comment-222910">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/cb64a6d47c384638fa7c92c7fab31cf8" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/cb64a6d47c384638fa7c92c7fab31cf8?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://lukegruber.me/" rel="external nofollow" class="url">Luke</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-222910"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2012-11-26T15:28:55+00:00">November 26, 2012</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>^ What he said.</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=222910#respond" onclick="return addComment.moveForm(&quot;comment-222910&quot;, &quot;222910&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-even depth-1 featured" id="li-comment-224020">
+
+      <div class="grid group nopadding comment-wrap" id="comment-224020">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/af4ffd88857ef429ac98c1acf9a0e2f3" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/af4ffd88857ef429ac98c1acf9a0e2f3?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://www.brettjankord.com/" rel="external nofollow" class="url">Brett Jankord</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-224020"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2012-11-28T13:07:24+00:00">November 28, 2012</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Hey Chris, I just <a href="http://goo.gl/t3bko" rel="nofollow">wrote up</a> some thoughts on how you simplify your future-friendly example. I always thought all the vendor prefixed media queries were a headache. When I looked at this some more, I realized you only need 2 checks in your retina/high resolution media query. Hopefully this helps other devs as well.</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=224020#respond" onclick="return addComment.moveForm(&quot;comment-224020&quot;, &quot;224020&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-228093">
+
+      <div class="grid group nopadding comment-wrap" id="comment-228093">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/477f7e0ef32597b224e630e56ad69ce6" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/477f7e0ef32597b224e630e56ad69ce6?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://14islands.com/" rel="external nofollow" class="url">David Lindkvist</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-228093"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2012-12-06T03:26:19+00:00">December 6, 2012</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Get this as a Resolution mixin for SASS: <a href="http://blog.14islands.com/post/37259603246/sass-resolution-mixin" rel="nofollow">http://blog.14islands.com/post/37259603246/sass-resolution-mixin</a><br>
+<code></code></p><code>
+<pre>// only include 1x size image for 'non-retina' screens
+@include if-max-resolution(1.49) {
+    background-image: url('img/footer-anchor@1x.png');
+}
+// only include 2x size image for 'retina' screens
+@include if-min-resolution(1.5) {
+    background-image: url('img/footer-anchor@2x.png');
+}
+</pre>
+</code><p><code></code></p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=228093#respond" onclick="return addComment.moveForm(&quot;comment-228093&quot;, &quot;228093&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class="children">
+
+		<li class="comment odd alt depth-2" id="li-comment-297386">
+
+      <div class="grid group nopadding comment-wrap" id="comment-297386">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/30e3f725af820d5dd5dd4f758a73593c" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/30e3f725af820d5dd5dd4f758a73593c?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Guillaume</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-297386"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-03-05T19:39:10+00:00">March 5, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Thanks David for the mixin;</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		<li class="comment even thread-even depth-1" id="li-comment-248547">
+
+      <div class="grid group nopadding comment-wrap" id="comment-248547">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/bedf21d5922d1d2528abac4f738316b9" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/bedf21d5922d1d2528abac4f738316b9?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://www.backslash.ch/" rel="external nofollow" class="url">Mat</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-248547"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-01-04T01:35:06+00:00">January 4, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Looks like IE9 had a problem with this definition mentioned above.<br>
+In my test IE9 loads the declaration inside the media query if this line is inside:</p>
+<pre><code>only screen and (min-resolution: 192dpi)
+</code></pre>
+<p>Can anyone else reproduce this?</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=248547#respond" onclick="return addComment.moveForm(&quot;comment-248547&quot;, &quot;248547&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class="children">
+
+		<li class="comment odd alt depth-2" id="li-comment-250114">
+
+      <div class="grid group nopadding comment-wrap" id="comment-250114">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/8ad70fad9bd226a3fd71ad2b2e70d5e1" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/8ad70fad9bd226a3fd71ad2b2e70d5e1?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://www.motorproductions.ch/" rel="external nofollow" class="url">Luk</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-250114"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-01-06T06:47:26+00:00">January 6, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I am facing the same problem. Did you manage to solve this issue?</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment even depth-2" id="li-comment-439053">
+
+      <div class="grid group nopadding comment-wrap" id="comment-439053">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/2a6d1b51cd0698407da640d1aefe239e" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/2a6d1b51cd0698407da640d1aefe239e?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://tedgustaf.com/" rel="external nofollow" class="url">Gustaf</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-439053"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-05-13T06:34:05+00:00">May 13, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Did you manage to solve this, we are experiencing the same problem on some PCs (not all, strange?) that is running IE9.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-248943">
+
+      <div class="grid group nopadding comment-wrap" id="comment-248943">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/1d763c1980c6b0100f3103dafdb32f61" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/1d763c1980c6b0100f3103dafdb32f61?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">David Green</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-248943"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-01-04T11:53:50+00:00">January 4, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Until every browser decides to get together and come up with a single solution we will always be venting our anger in terms of device compatability. Apple you may have the gorgeous way of displaying your info on your marvelous devices but spare a thought for designers having to work with this tech. Now we are producing 2 images when one should be enough……..</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=248943#respond" onclick="return addComment.moveForm(&quot;comment-248943&quot;, &quot;248943&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment even thread-even depth-1" id="li-comment-272400">
+
+      <div class="grid group nopadding comment-wrap" id="comment-272400">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/c97c2615ecea70cce480e55a93e522ab" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/c97c2615ecea70cce480e55a93e522ab?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Seacrest</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-272400"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-01-28T15:07:15+00:00">January 28, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>OK, Andrew.<br>
+But why not tell us how you <em>really</em> feel?</p>
+<p>;)</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=272400#respond" onclick="return addComment.moveForm(&quot;comment-272400&quot;, &quot;272400&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-279229">
+
+      <div class="grid group nopadding comment-wrap" id="comment-279229">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/1e7d1c637b9d2a6b5dc696d8cc7bfd64" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/1e7d1c637b9d2a6b5dc696d8cc7bfd64?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">vale</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-279229"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-02-07T16:34:10+00:00">February 7, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>@Andrew: well you couldn’t have been more straight to the point… ;) Just serve ‘em a plain text file.</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=279229#respond" onclick="return addComment.moveForm(&quot;comment-279229&quot;, &quot;279229&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment even thread-even depth-1" id="li-comment-283798">
+
+      <div class="grid group nopadding comment-wrap" id="comment-283798">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/b282ca16ad46114506f709a02a08660e" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/b282ca16ad46114506f709a02a08660e?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Jess</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-283798"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-02-13T23:32:39+00:00">February 13, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>These solutions are great for images you can identify in your styles but what are the best solutions for images placed within content areas such as blog posts via WordPress?</p>
+<p>I am having issues with images that may be syndicated through RSS on partner sites.</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=283798#respond" onclick="return addComment.moveForm(&quot;comment-283798&quot;, &quot;283798&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class="children">
+
+		<li class="comment odd alt depth-2" id="li-comment-319442">
+
+      <div class="grid group nopadding comment-wrap" id="comment-319442">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/bd7a68b94d6859fecf26f00234993c4f" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/bd7a68b94d6859fecf26f00234993c4f?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Peter</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-319442"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-03-26T11:20:59+00:00">March 26, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>@Jess You could look into Hammy: <a href="http://wordpress.org/extend/plugins/hammy/" rel="nofollow">http://wordpress.org/extend/plugins/hammy/</a></p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-291734">
+
+      <div class="grid group nopadding comment-wrap" id="comment-291734">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/0e3100428f36129ae3e0bcac5c2b5662" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/0e3100428f36129ae3e0bcac5c2b5662?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://www.none.com/" rel="external nofollow" class="url">Anthony</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-291734"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-02-25T17:10:08+00:00">February 25, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>So all this retina and I don’t have one. Can I care less… Ah whatever. So how would us developers know its working if we can’t see it? Is there a trick to this?</p>
+<p>Any help on seeing the image change on a non retina display to know its working and aligned correctly would be nice. No problem coding for it just need to be able to see the changes are ok and fixed.</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=291734#respond" onclick="return addComment.moveForm(&quot;comment-291734&quot;, &quot;291734&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-even depth-1" id="li-comment-306247">
+
+      <div class="grid group nopadding comment-wrap" id="comment-306247">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/3a75dbb41674daebf3fec4c523afd286" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/3a75dbb41674daebf3fec4c523afd286?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Martín</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-306247"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-03-18T15:27:24+00:00">March 18, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>There’s an <a href="http://www.w3.org/blog/CSS/2012/06/14/unprefix-webkit-device-pixel-ratio/" rel="nofollow">article</a> in the W3C’s Blog that says:</p>
+<blockquote><p>“to unprefix -webkit-device-pixel-ratio all you have to do is convert it to resolution—which is already implemented by all the other browsers. The easiest way is to multiply the value by 96 and append dpi. Like this:”</p></blockquote>
+<pre><code>@media (-webkit-min-device-pixel-ratio: 2), /* Webkit */
+       (min-resolution: 192dpi)             /* Everyone else */ {
+...
+}</code></pre>
+<p>And thanks to the new implementation of the <code>dppx</code> (dots per px) and some problems with the ratios lowers than 2 we can write:</p>
+<pre><code>@media (-webkit-min-device-pixel-ratio: 1.5), /* Webkit */
+       (min-resolution: 1.5dppx)              /* The Future */
+...
+}</code></pre>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=306247#respond" onclick="return addComment.moveForm(&quot;comment-306247&quot;, &quot;306247&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-310168">
+
+      <div class="grid group nopadding comment-wrap" id="comment-310168">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/8b42a161d6727be28dda3721c4f56088" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/8b42a161d6727be28dda3721c4f56088?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Rachael</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-310168"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-03-20T06:53:13+00:00">March 20, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>@Andrew – I totally agree – brilliant rant! lol</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=310168#respond" onclick="return addComment.moveForm(&quot;comment-310168&quot;, &quot;310168&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-even depth-1" id="li-comment-312598">
+
+      <div class="grid group nopadding comment-wrap" id="comment-312598">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/8e89f1761238f87bdc009ae425cf870d" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/8e89f1761238f87bdc009ae425cf870d?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://bijayjoshi.com.np/" rel="external nofollow" class="url">Bijay</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-312598"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-03-21T22:26:46+00:00">March 21, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I think this is only going to get more and more complicated. This should be headache for device manufacturers or browser engines.</p>
+<p>Because:<br>
+1. Not all developers can afford the devices and test.<br>
+2. Everything is going to get more complicated when there are huge manufacturers.</p>
+<p>We can make rules for the manufacturers or browsers, but not developers.</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=312598#respond" onclick="return addComment.moveForm(&quot;comment-312598&quot;, &quot;312598&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class="children">
+
+		<li class="comment even depth-2" id="li-comment-462234">
+
+      <div class="grid group nopadding comment-wrap" id="comment-462234">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/1638fe6ece480a18a4078a5e88f00c5e" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/1638fe6ece480a18a4078a5e88f00c5e?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">gaurav</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-462234"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-06-13T22:56:25+00:00">June 13, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I am fully agree with Bijay</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-449397">
+
+      <div class="grid group nopadding comment-wrap" id="comment-449397">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/220dbbf27d80a0f90d309676ed81a1ad" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/220dbbf27d80a0f90d309676ed81a1ad?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://www.celikraf.web.tr/" rel="external nofollow" class="url">çelik raf</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-449397"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-05-27T11:52:57+00:00">May 27, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I need download retina ready icons.. Is it like text format or vector? Where is retina ready icons?</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=449397#respond" onclick="return addComment.moveForm(&quot;comment-449397&quot;, &quot;449397&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class="children">
+
+		<li class="comment even depth-2" id="li-comment-463416">
+
+      <div class="grid group nopadding comment-wrap" id="comment-463416">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/0f8f930414e5a33c11f5c46a99b73cbe" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/0f8f930414e5a33c11f5c46a99b73cbe?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">sumon</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-463416"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-06-15T12:51:40+00:00">June 15, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Use font awesome for icon</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-even depth-1" id="li-comment-464337">
+
+      <div class="grid group nopadding comment-wrap" id="comment-464337">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/6c808dfbc7b5cb53a2af9ec6d28454a2" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/6c808dfbc7b5cb53a2af9ec6d28454a2?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Robert</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-464337"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-06-17T05:32:47+00:00">June 17, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I think that Apple, Samsung, and whoever else creates Retina (and other hi-dpi brand name) devices should take care of the proper dpi of images (NOT text).</p>
+<p>*   The manufacturers can detect and do this image resolution upscaling easily in hardware.<br>
+*   It’s a pain in the neck to have to create 2 sets of images with ImageMagick from an image with regular resolution. Djeez, it’s just width x2 and height x2. It doesn’t even blur. And ImageMagick pre-creates the upscaled images without breaking a sweat on a server without hardware accelerated graphic manipulation.<br>
+*   Media queries are a never ending maintenance burden.<br>
+*   Older/pre-Retina web pages are also visited by devices with Retina displays. (Thanks guys.)<br>
+*   When companies introduce new hardware, they can’t place the whole burden with developers : “Here’s a new type of screen. We don’t care that it’s giving you more (guess) work. Just deal with it.”<br>
+*   Manufacturers create devices/gadgets for a life-span of at most 18-24 months. Especially Apple is guilty of this (but not alone), when you realize that your device is not getting iOS updates anymore. So why bother with getting things perfect ? Good enough will do.<br>
+*   Optimizing web pages for speed and size because they are going to be processed by a bandwidth limited device, and then filling it with x2 images (which are in fact 4 times the regular size) is counterproductive. If not totally stupid. A big F-up of the manufacturers. And they block automatic playing of videos to safeguard client’s bandwidth, and allow megabytes of Retina images to be auto downloaded. While they could have upscaled, in hardware, our regular dpi images to the high physical dpi of the device.</p>
+<p>That’s why I’ll most likely stop making second sets of images for hi-dpi devices. If Apple, Samsung, and others don’t give a “certain substance” about how old or new content looks on these devices, then why should I ? It’s not my product.</p>
+<p>How difficult can it be to come up with, and give us, a new vendor property to upscale an image with regular dpi to the physical dpi of the Retina display ?<br>
+As developers we would only have to specify this vendor property on regular dpi images.<br>
+Under the hood, the manufacturers can even optimize this dpi upscaling for the specific device it’s running on.<br>
+Why can they be so clever to think up and produce Retina displays, and so retarded to not think about and implement hardware upscaling of dpi.</p>
+<p>P.S.<br>
+Substitute Retina for whatever Samsung and others call their hi-dpi screen tech.<br>
+This is not a rant against Apple, it’s just that Retina has become the name for a product technology. (Similar to Hoover.)</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=464337#respond" onclick="return addComment.moveForm(&quot;comment-464337&quot;, &quot;464337&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-481279">
+
+      <div class="grid group nopadding comment-wrap" id="comment-481279">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/c39ce65dfd3c434113aa1178f0230463" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/c39ce65dfd3c434113aa1178f0230463?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://lumijar.com/" rel="external nofollow" class="url">David Guarneri</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-481279"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-07-08T21:01:13+00:00">July 8, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I think the problem lies in that the hardware vendors actually do adjust for their resolution, but they are assuming the lowest common denominator as far as how the web site was designed.  They want to make the device work with as many pages as possible.  Hence, it’s not until you set your web page at 1x until your media queries start working, thereby overriding whatever aspect ration the manufacturer set.   So now your flex design works, however the burden is on you now (the designer) to make things work across devices!</p>
+<p>The solution is simple, but no one seems to see it.  Let’s get back to what we did in the days of paper: actual measurements (cm, inches).  It takes pixel density out of the picture altogether.  Sure, images are then still sized as pixels in Photoshop, but they are marked in actual size in the CSS.  The software layer of rending the author’s intentions can then be handled between the browser and the OS.   This way the media queries work the way they were intended:  To judge the size of screen the user will be viewing the page in.</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=481279#respond" onclick="return addComment.moveForm(&quot;comment-481279&quot;, &quot;481279&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-even depth-1" id="li-comment-481282">
+
+      <div class="grid group nopadding comment-wrap" id="comment-481282">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/c39ce65dfd3c434113aa1178f0230463" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/c39ce65dfd3c434113aa1178f0230463?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://lumijar.com/" rel="external nofollow" class="url">David Guarneri</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-481282"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-07-08T21:09:24+00:00">July 8, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>One more thing… for those of you concerned about doing multiple images for different devices.  Is that really necessary?  Adobe Illustrator and Photoshop have a “Save to Web” feature where you can save your picture as a PNG.  I’ve been using it and have produced some very high quality graphics (and sometimes pictures as well) at small file sizes.  Graphics at look awesome at 128 colors, sometimes even better than 256 colors.  For high quality pictures, perhaps you could use something like cloud zoom?  Just some suggestions.</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=481282#respond" onclick="return addComment.moveForm(&quot;comment-481282&quot;, &quot;481282&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-515575">
+
+      <div class="grid group nopadding comment-wrap" id="comment-515575">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/fd21264dd5444c07cc660e7567250c13" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/fd21264dd5444c07cc660e7567250c13?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">chroix</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-515575"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-08-15T07:05:31+00:00">August 15, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Chris, I just wanted to tell you thank you for your efforts on this site. You provide some invaluable information and I really appreciate it. c</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=515575#respond" onclick="return addComment.moveForm(&quot;comment-515575&quot;, &quot;515575&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class="children">
+
+		<li class="comment odd alt depth-2" id="li-comment-535616">
+
+      <div class="grid group nopadding comment-wrap" id="comment-535616">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/5c8de776018d6eaae68740f2cfe24c90" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/5c8de776018d6eaae68740f2cfe24c90?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Tom</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-535616"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-09-04T21:00:46+00:00">September 4, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Heavily seconded; specifically, I really appreciate that you go back and keep your old posts updated with the latest developments. That is so important in a world where old blog posts can top search results and continue to supply people with outdated information.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		<li class="comment even thread-even depth-1" id="li-comment-548243">
+
+      <div class="grid group nopadding comment-wrap" id="comment-548243">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/48fea84b830a13827d4f19d5e0ffc2b8" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/48fea84b830a13827d4f19d5e0ffc2b8?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://seattime.co/" rel="external nofollow" class="url">Brian</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-548243"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-09-15T12:43:57+00:00">September 15, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p><strong>Help if you get the time.</strong></p>
+<p>Ok, I am using a pretty standard media query for Retina devices.<br>
+@media<br>
+(-webkit-min-device-pixel-ratio: 2),<br>
+(min-resolution: 192dpi) {<br>
+    /* Retina-specific stuff here */<br>
+}</p>
+<p>In some Android devices/browsers (specifically S3, running Chrome), it looks as though the Retina image is loading, but it is not loading the background-size property. So the image takes up more than the space it should.</p>
+<p>Any one run across anything like this or have a resource that could point me towards a solution.</p>
+<p>Thanks Guys.</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=548243#respond" onclick="return addComment.moveForm(&quot;comment-548243&quot;, &quot;548243&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	<ul class="children">
+
+		<li class="comment odd alt depth-2" id="li-comment-551748">
+
+      <div class="grid group nopadding comment-wrap" id="comment-551748">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/aba46c0cd3bd3d08e992ff29976b91ed" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/aba46c0cd3bd3d08e992ff29976b91ed?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Kevin</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-551748"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-09-18T23:40:52+00:00">September 18, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Do you have a background-size tag in your css?  I think that’s necessary to keep some browsers from scaling the background up to compensate for the resolution.  So, if your retina-specific background image is 200px x 200px, you’d declare “background-size: 100px 100px”.</p>
+
+            <div class="reply">
+                          </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-585981">
+
+      <div class="grid group nopadding comment-wrap" id="comment-585981">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/36981c86da68ba805d0415981cbd6bcc" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/36981c86da68ba805d0415981cbd6bcc?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">cargogirl</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-585981"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-10-11T19:56:38+00:00">October 11, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>would that mean you would need a range of images to be<br>
+2560px wide<br>
+1920px wide<br>
+1540px wide<br>
+960px wide<br>
+480px wide<br>
+for a background cover image</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=585981#respond" onclick="return addComment.moveForm(&quot;comment-585981&quot;, &quot;585981&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-even depth-1" id="li-comment-687010">
+
+      <div class="grid group nopadding comment-wrap" id="comment-687010">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/18ccf4a5cb2c163e8a1038b1faff0d1c" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/18ccf4a5cb2c163e8a1038b1faff0d1c?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author"><a href="http://www.l-web-dev.net/" rel="external nofollow" class="url">Leonidas Savvides</a></div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-687010"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-11-21T08:55:56+00:00">November 21, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>If serve a resolution 2x bkgd image in resolution 1.5x mobile device display or in 1x display what should happen? In other words image resol is bigger than display resol… Image to appear in display resol exactly or…?  2x images for retina what resolution ppi… must have usually, this to create in Fireworks or Photoshop or Gimpshop?</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=687010#respond" onclick="return addComment.moveForm(&quot;comment-687010&quot;, &quot;687010&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-770448">
+
+      <div class="grid group nopadding comment-wrap" id="comment-770448">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/202ad3a133bfba65634f2a05fd23e18e" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://0.gravatar.com/avatar/202ad3a133bfba65634f2a05fd23e18e?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">nilesh</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-770448"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-12-06T07:04:53+00:00">December 6, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>I have one problem about project in responsive website.in computer I will display 10 image in one line but in phone I will display only 5 image in one line</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=770448#respond" onclick="return addComment.moveForm(&quot;comment-770448&quot;, &quot;770448&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment odd alt thread-even depth-1" id="li-comment-793693">
+
+      <div class="grid group nopadding comment-wrap" id="comment-793693">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/90f73523689137826016adde7ed274be" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/90f73523689137826016adde7ed274be?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">sai</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-793693"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2013-12-09T06:36:40+00:00">December 9, 2013</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Hello Mr. Chris Coyier, Thanks for your suggestions, and i don’t understand one thing , u mentioned lot of css for retina display,which css is to use for retina display..</p>
+<p>Thanks in Advance..</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=793693#respond" onclick="return addComment.moveForm(&quot;comment-793693&quot;, &quot;793693&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+
+		<li class="comment even thread-odd thread-alt depth-1" id="li-comment-1086627">
+
+      <div class="grid group nopadding comment-wrap" id="comment-1086627">
+
+        <div class="comment-avatar grid-1-5">
+          <img alt="" src="./retina_files/92f1f516d0a879d39671eef5fc2a3320" class="avatar avatar-160 photo" height="160" width="160" originals="160" src-orig="http://1.gravatar.com/avatar/92f1f516d0a879d39671eef5fc2a3320?s=160&amp;d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&amp;r=PG" scale="2">        </div>
+
+        <div class="comment-body group grid-4-5">
+
+          <div class="comment-author-wrap vcard">
+            <div class="comment-author">Alan Hughes</div> <div class="comment-time"><a href="http://css-tricks.com/snippets/css/retina-display-media-query/#comment-1086627"><span class="screen-reader">Permalink to comment</span>#</a> <time pubdate="" datetime="2014-01-15T02:15:15+00:00">January 15, 2014</time></div>
+            
+          </div>
+          
+          <div class="comment-content">
+
+            <p>Is there a reason you use</p>
+<p><code>min-resolution: dpi</code></p>
+<p>Instead of</p>
+<p><code>max-width: px</code></p>
+<p>If retina iPad’s have 2048 x 1536 resolution I would think the code for this would be something like</p>
+<p><code>@media (-webkit-min-device-pixel-ratio: 2),<br>
+(max-width: 2048px;) {<br>
+.mobile: css;<br>
+}</code></p>
+<p>I also have a question, if you set conditional code for ratio 1.5 will that carry on and be applied to ratios at 2.0 ? Or will it default back to 1.0 ratio?</p>
+
+            <div class="reply">
+              <a class="comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/?replytocom=1086627#respond" onclick="return addComment.moveForm(&quot;comment-1086627&quot;, &quot;1086627&quot;, &quot;respond&quot;, &quot;17757&quot;)">Reply ↓</a>            </div><!-- .reply -->
+
+          </div>
+        </div>
+      </div>
+    
+	</li><!-- #comment-## -->
+	</ol>
+
+
+
+	<div id="respond" class="respond group">
+
+		
+		<form action="http://css-tricks.com/wp-comments-post.php" method="post" id="comment-form" class="group comment-form">
+
+			<h2 class="comments-title">
+				<span aria-hidden="true" data-icon="9"></span>Leave a Comment
+			</h2>
+
+			
+				<div class="grid nopadding group commenter-inputs">
+
+				  <div class="grid-1-3">
+						<label for="author" class="screen-reader">Name*</label>
+						<input placeholder="Name (required)" required="" type="text" name="author" id="author" value="" class="infoput">
+				  </div>
+
+				  <div class="grid-1-3">
+						<label for="email" class="screen-reader">Email</label>
+						<input placeholder="Email (required)" required="" type="email" name="email" id="email" value="" class="infoput">
+				  </div>
+
+				  <div class="grid-1-3">
+						<label for="url" class="screen-reader">Website</label>
+						<input placeholder="Website (optional)" type="url" name="url" id="url" value="" class="infoput">
+					</div>
+
+				</div>
+				
+				<div class="comment-wrap">
+					<label for="comment" class="screen-reader">Comment</label>
+					<div><div id="markItUpComment" class="markItUp"><div class="markItUpContainer"><div class="markItUpHeader"><ul><li class="markItUpButton markItUpButton1 "><a href="" accesskey="B" title="Bold [Ctrl+B]">Bold</a></li><li class="markItUpButton markItUpButton2 "><a href="" accesskey="I" title="Italic [Ctrl+I]">Italic</a></li><li class="markItUpButton markItUpButton3 "><a href="" accesskey="L" title="Link [Ctrl+L]">Link</a></li><li class="markItUpButton markItUpButton4 "><a href="" title="Quote">Quote</a></li><li class="markItUpButton markItUpButton5 "><a href="" title="Inline Code">Inline Code</a></li><li class="markItUpButton markItUpButton6 "><a href="" title="Block Code">Block Code</a></li></ul></div><textarea name="comment" id="comment" cols="100" rows="10" placeholder="Your comment here. You&#39;d be surprised how doing good comes around." class="markItUpEditor"></textarea><div class="markItUpFooter"><div class="markItUpResizeHandle"></div></div></div></div></div>
+					<p class="textarea-usage">Use <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">markdown</a> or basic HTML and be nice.</p>
+				</div>
+
+				<input type="hidden" name="comment_post_ID" value="17757" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+				<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="8ee7470e9f"></p><script src="./retina_files/saved_resource" type="text/javascript"></script><div id="commentPreview"></div><p class="comment-subscription-form"><input type="checkbox" name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;"> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments" style="display: inline;">Notify me of follow-up comments by email.</label></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;"> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog" style="display: inline;">Notify me of new posts by email.</label></p>
+				<div class="comment-form-button-wrap">
+					<input name="submit" type="submit" class="button" id="submit" value="Submit Comment">
+
+					<a rel="nofollow" id="cancel-comment-reply-link" href="http://css-tricks.com/snippets/css/retina-display-media-query/#respond" style="display:none;">Cancel Reply</a>				</div>
+
+		</form>
+
+		
+	</div>
+
+</section>
+		</section>
+
+		<aside class="grid-1-3">
+
+    <div class="module module-image-ad module-treehouse">
+
+    <a href="http://teamtreehouse.com/redirect/css-tricks/sidebar">
+    <img src="./retina_files/CSS-Tricks-600x500.png" scale="0">
+    </a>
+
+    <p class="note">I recommend using <a href="http://teamtreehouse.com/redirect/css-tricks/sidebar">Treehouse</a> for learning web design, web development, and iOS development. Their structured course-based learning is like a more modern college at about 1% of the price.</p>
+
+  </div>
+  
+  <div class="module group module-lodge">
+    
+  
+    <p class="intro-lodge"><a href="http://css-tricks.com/lodge/">The Lodge</a> is a <a href="http://css-tricks.com/wp-login.php">member login</a> only area with access to video training on how to build websites from scratch using the best modern tools.</p>
+
+    <div class="lodge-actions">
+      <a href="http://css-tricks.com/lodge/signup/" class="button">Sign up!</a>
+    </div>
+
+  
+  </div>
+
+    <div class="module module-image-ad">
+    <a id="wufoo-ad-graphic" class="wufoo-ad-graphic" href="http://ad.doubleclick.net/ddm/clk/270735259;104033101;o?http://www.wufoo.com/landing/1/?utm_source=csstricks&utm_medium=ppc&cmpid=brand&utm_network=d&utm_term=csstricks600x600banner">
+    </a>
+    <p class="note">
+      The forms that you build with <a href="http://ad.doubleclick.net/ddm/clk/270735316;104033101;i?http://www.wufoo.com/landing/1/?utm_source=csstricks&utm_medium=ppc&cmpid=brand&utm_network=d&utm_term=csstrickstextlinkwufoo">Wufoo</a> can take payments through Stripe, PayPal, Authorize.net, and more. Perfect for taking money for an event, selling a T-Shirt, accepting donations, or anything else you need.
+
+      <a href="http://ad.doubleclick.net/ddm/clk/270735352;104033101;i?http://www.wufoo.com/landing/1/?utm_source=csstricks&utm_medium=ppc&cmpid=brand&utm_network=d&utm_term=csstrickstextlinktryitfree">Try&nbsp;it&nbsp;free!</a><img src="./retina_files/B7043538.104033101;sz=1x1;kw=[url_encoded_publisher_data]" scale="0">
+    </p>
+  </div>
+  
+  <div class="module module-poll">
+    <div id="polls-47" class="wp-polls">
+		<h4>On average, how many commands do you run from the command line each work day?</h4>
+
+<div id="polls-47-ans" class="wp-polls-ans">
+
+<ul class="wp-polls-ul">
+		<li class="group"><span>1000+ (a ton)</span> <small>(6%, 529 Votes)</small><div class="pollbar" style="width: 6%;" title="1000+ (a ton) (6% | 529 Votes)"></div></li>
+		<li class="group"><span>100-1000 (a bunch)</span> <small>(16%, 1,496 Votes)</small><div class="pollbar" style="width: 16%;" title="You Have Voted For This Choice - 100-1000 (a bunch) (16% | 1,496 Votes)"></div></li>
+		<li class="group"><span>50-100 (some)</span> <small>(15%, 1,434 Votes)</small><div class="pollbar" style="width: 15%;" title="50-100 (some) (15% | 1,434 Votes)"></div></li>
+		<li class="group"><span>10-50 (a little)</span> <small>(18%, 1,694 Votes)</small><div class="pollbar" style="width: 18%;" title="10-50 (a little) (18% | 1,694 Votes)"></div></li>
+		<li class="group"><span>1-10 (very little)</span> <small>(27%, 2,525 Votes)</small><div class="pollbar" style="width: 27%;" title="1-10 (very little) (27% | 2,525 Votes)"></div></li>
+		<li class="group"><span>0 (never)</span> <small>(18%, 1,775 Votes)</small><div class="pollbar" style="width: 19%;" title="0 (never) (18% | 1,775 Votes)"></div></li>
+		</ul><p style="text-align: center;" class="total-voters">Total Voters: <strong>9,453</strong></p></div>
+		<input type="hidden" id="poll_47_nonce" name="wp-polls-nonce" value="46a8362242">
+</div>
+  </div>
+  <div class="module module-subscribe">
+    <h4>Over 100,000 of the best looking web workers subscribe to CSS-Tricks. Join them?</h4>
+    <div class="module-subscribe-buttons">
+      <a class="button" href="http://feeds.feedburner.com/CssTricks">
+        <span aria-hidden="true" data-icon="S"></span>RSS
+      </a>
+      <br>
+      <a class="button" href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=273881728">
+        <span aria-hidden="true" data-icon="a"></span>iTunes
+      </a>
+    </div>
+    <a href="http://css-tricks.com/subscription-options/">See all Subscription Options</a>
+  </div>
+
+</aside>
+	</div>
+</div>
+  </div>
+  <footer class="site-footer top-footer group">
+
+    <ul class="link-list left-links">
+      <li><a href="http://css-tricks.com/contact/">Contact CSS-Tricks<span></span></a></li>
+      <li class="space"><a href="http://css-tricks.com/advertising/">Advertise on CSS-Tricks<span></span></a></li>
+
+      <li><a href="http://twitter.com/real_css_tricks">Twitter: real_css_tricks<span></span></a></li>
+      <li><a href="http://facebook.com/CSSTricks">Facebook: CSSTricks<span></span></a></li>
+      <li><a href="http://www.youtube.com/realcsstricks">YouTube: realcsstricks<span></span></a></li>
+      <li class="space"><a href="https://github.com/CSS-Tricks/">GitHub: CSS-Tricks Org<span></span></a></li>
+
+      <li><a href="http://twitter.com/chriscoyier">Twitter: chriscoyier<span></span></a></li>
+      <li><a href="http://codepen.io/chriscoyier">CodePen: chriscoyier<span></span></a></li>
+      <li><a href="http://dribbble.com/chriscoyier">Dribbble: chriscoyier<span></span></a></li>
+      <li><a href="http://pinboard.in/u:chriscoyier">Pinboard: chriscoyier<span></span></a></li>
+      <li><a href="http://plus.google.com/101987072260327250694/posts">Google+: chriscoyier<span></span></a></li>
+    </ul>
+
+    <ul class="link-list right-links">
+      <li><a href="http://css-tricks.com/bookshelf/">The Bookshelf<span></span></a></li>
+      <li><a href="http://css-tricks.com/polls/">Poll Archive<span></span></a></li>
+      <li><a href="http://css-tricks.com/design-history/">Design Archive<span></span></a></li>
+      <li class="space"><a href="http://css-tricks.com/archives/">Article Archive<span></span></a></li>
+
+      <li><a href="http://digwp.com/">Digging into WordPress<span></span></a></li>
+      <li><a href="http://www.lynda.com/WordPress-3-tutorials/creating-and-editing-custom-themes/67160-2.html?utm_medium=ldc-partner&utm_source=SSPRC&utm_content=524&utm_campaign=CD2269&bid=524&aid=CD2269">Lynda.com WP Theme Course<span></span></a></li>
+
+      <li><a href="http://quotesondesign.com/">Quotes on Design<span></span></a></li>
+      <li class="space"><a href="http://html-ipsum.com/">HTML-Ipsum<span></span></a></li>
+
+      <li><a href="http://css-tricks.com/deals/">Deals<span></span></a></li>
+      <li><a href="http://css-tricks-store.myshopify.com/"><strong class="footer-store-link">NEW!</strong> The Store<span></span></a></li>
+      <li><a href="http://css-tricks.com/license/">The License<span></span></a></li>
+    </ul>
+
+  </footer>
+
+  <footer class="site-footer bottom-footer group">
+
+    <div class="bottom-footer-part footer-codepen">
+      <a href="http://codepen.io/" class="footer-logo">
+        <img src="./retina_files/footer-logo-codepen.png" alt="CodePen Logo" scale="0">
+      </a>
+      <p>
+        <a href="http://codepen.io/">
+          CodePen
+        </a>
+        is a social code playground for web designers and developers. Build demos, find inspiration, or troubleshoot code. With <a href="http://blog.codepen.io/documentation/pro-features/">CodePen PRO</a> you can teach students, pair program, host files, and more!
+      </p>
+    </div>
+
+    <div class="bottom-footer-part footer-shoptalk">
+      <a href="http://shoptalkshow.com/" class="footer-logo">
+        <img src="./retina_files/footer-logo-shoptalk.png" alt="ShopTalk Logo" scale="0">
+      </a>
+      <p>
+        <a href="http://shoptalkshow.com/">
+          ShopTalk
+        </a>
+         is a podcast about all things web design and development hosted by Dave Rupert and me. The show is recorded live and covers the week in #hotdrama and listener Q&amp;A.
+       </p>
+    </div>
+
+  </footer>
+
+  <footer class="site-footer slogan">
+    CSS-Tricks* is created, written by, and maintained by <a href="http://chriscoyier.net/">Chris Coyier</a>. It is built on <a href="http://wordpress.org/">WordPress</a>, hosted by <a href="http://www.mediatemple.net/#a_aid=4e25c84480ed2">Media Temple</a> and <a href="http://tracking.maxcdn.com/c/13088/93731/378">MaxCDN</a>, with fonts by <a href="http://www.typography.com/">H&amp;FJ</a>. *May or may not contain any "CSS" or "Tricks".
+  </footer>
+
+	<script type="text/javascript" src="./retina_files/devicepx-jetpack.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var pollsL10n = {"ajax_url":"http:\/\/css-tricks.com\/wp-admin\/admin-ajax.php","text_wait":"Your last request is still being processed. Please wait a while ...","text_valid":"Please choose a valid poll answer.","text_multiple":"Maximum number of choices allowed: ","show_loading":"0","show_fading":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./retina_files/polls-js.js"></script>
+
+  <script src="./retina_files/global-ck.js"></script>
+  <script async="" src="./retina_files/ei.js"></script>
+
+  
+  <script>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-68528-29']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+  })();
+</script>
+
+<script>
+/* <![CDATA[ */
+var google_conversion_id = 1017883234;
+var google_conversion_label = "BsxVCM7ImAMQ4tSu5QM";
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script src="./retina_files/conversion.js">
+</script><iframe name="google_conversion_frame" title="Google conversion frame" width="300" height="13" src="./retina_files/saved_resource.html" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no">&lt;img height="1" width="1" border="0" alt="" src="http://googleads.g.doubleclick.net/pagead/viewthroughconversion/1017883234/?frame=0&amp;random=1390283854814&amp;cv=7&amp;fst=1390283854814&amp;num=1&amp;fmt=1&amp;label=BsxVCM7ImAMQ4tSu5QM&amp;guid=ON&amp;u_h=800&amp;u_w=1280&amp;u_ah=774&amp;u_aw=1280&amp;u_cd=24&amp;u_his=7&amp;u_tz=-300&amp;u_java=true&amp;u_nplug=15&amp;u_nmime=74&amp;frm=0&amp;url=http%3A//css-tricks.com/snippets/css/retina-display-media-query/&amp;ref=https%3A//www.google.com/" /&gt;</iframe>
+<noscript>
+&lt;div style="display:inline;"&gt;
+&lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1017883234/?value=0&amp;amp;label=BsxVCM7ImAMQ4tSu5QM&amp;amp;guid=ON&amp;amp;script=0"&gt;
+&lt;/div&gt;
+</noscript>
+
+
+
+
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk
+Content Delivery Network via cdn.css-tricks.com
+
+ Served from: css-tricks.com @ 2014-01-20 22:02:12 by W3 Total Cache --></body><iframe id="evernoteFilingTools" src="./retina_files/filing_tools.html"></iframe><iframe id="evernoteUserTools" src="./retina_files/user_tools.html"></iframe><iframe id="evernoteShareTools" src="./retina_files/share_tools.html"></iframe><iframe id="evernoteEmailSharing" src="./retina_files/email_sharing.html"></iframe><iframe id="evernoteGlobalTools" src="./retina_files/global_tools.html"></iframe></html>

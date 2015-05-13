@@ -1,0 +1,10 @@
+#sitemap {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#sitemap td {
+	border-bottom: 1px solid #ccc;
+	padding: 5px;
+	font-size: 13px;
+}
