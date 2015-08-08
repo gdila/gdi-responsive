@@ -318,7 +318,6 @@ body {
 .reveal pre {
 	display: block;
 	position: relative;
-	width: 90%;
 	margin: 15px auto;
 
 	text-align: left;
@@ -328,16 +327,21 @@ body {
 
 	word-wrap: break-word;
 
-	box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
 }
 .reveal code {
 	font-family: monospace;
 }
 .reveal pre code {
-	padding: 5px;
+	border: 6px solid white;
+	border-radius: 10px;
+	box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
+	padding: 10px 15px;
 	overflow: auto;
 	max-height: 400px;
 	word-wrap: normal;
+}
+.reveal pre code[contenteditable]:focus {
+	outline: none;
 }
 .reveal pre.stretch code {
 	height: 100%;
@@ -1883,5 +1887,5 @@ body {
  *********************************************/
 
 .pretty {
-	color: #92BB44;
+	color: #92BB44;g
 }
