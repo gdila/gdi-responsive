@@ -1,22 +1,24 @@
-#Intro to Responsive Web Design
+# Responsive Design 102: Making Sites Responsive
 
-Created for [Girl Develop It Detroit](http://gdidetroit.com) by [Nicole Rodriguez](http://gopixelsgo.com). Modified by [Laura Eagin](http://lauraeagin.com), [Aisha Blake](http://aishablake.com), and [Leeann Drees](http://leeanndrees.com).
+Slides and materials are hosted at [gdila.github.io/gdi-responsive](gdila.github.io/gdi-responsive).
 
-##Course Description:
->What's the big deal about Responsive Design?  
-The big deal is that there are now 1.75 billion smartphone users worldwide. Somewhere, someone is using their smartphone to book a flight because they missed their connection; check their account balance before making a purchase; find the closest urgent care center. And someone is at their wit's end after pinching, zooming, and panning all over the website just to complete the simplest task - because it was designed for the desktop.   
-Responsive design helps end this madness and makes websites easier to use, on whatever device a website is viewed on. This workshop will provide a basic understanding of responsive design from concept to code, and give you the tools and resources to create a responsive website.   
-PREREQUISITES: Participants should have a basic understanding of HTML & CSS, enough to be comfortable editing it and inspecting it in the browser.  
+## Course description
 
-##Outline:
-- What is responsive design?
-- Fluid grids
-- Flexible images
-- CSS3 Media Queries
-- Exercise: Making it Responsive
-- Frameworks
-- Exercise: Working with Foundation
-- Process: Mobile First
-- Beyond Responsive
+Use this space for a short description of your course. We recommend using the description from your meetup event.
 
-*This class is intended to be taught in one four-hour session.*
+Responsive design is awesome, but for practical reasons, we can't always afford to re-build a website from scratch when we decide it's time for a site to be responsive. In this workshop, we'll take a look at techniques for taking existing fixed-width sites and making them responsive.
+
+This workshop will provide a basic understanding of responsive design, from concept to code, and give you the tools and resources for taking an existing site and making it a responsive one. We'll cover media queries, design tools and best practices, and we'll have some hands-on coding time for getting practice making it all work.
+
+
+### Prerequisites:
+
+Attendees should be comfortable with HTML and CSS. Specifically, you should understand the CSS box model, floats, CSS resets and HTML standards and tags.
+
+
+
+### Tech requirements:
+
+ - Please bring a laptop* and charger to class. Power outlets and wifi will be provided.
+ - You may also wish to bring a notepad and pen/pencil for taking notes.
+ - You'll also need a modern browser and your favorite text editor installed. We recommend Sublime Text and Google Chrome.
