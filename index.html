@@ -58,7 +58,7 @@
 				</p>
 				<hr>
 				<p>
-					<a href="http://gdila.github.io/gdi-responsive/intro-rwd-exercises/intro-rwd-exercises.zip"></a>Download the zip of files for class</a>
+					<a href="http://gdila.github.io/gdi-responsive/intro-rwd-exercises.zip">Download the zip of files for class</a>
 				</p>
 				<p>Unzip the file to your desktop.</p>
 			</section>
@@ -236,7 +236,7 @@
 				<img src = "images/stuff-and-nonsense.jpg" width="600"/>
 			</section>
 
-			<!-- -->
+			<!-- Open First Exercise -->
 			 <section>
 				<h3>Let's take a peek at some awesomeness</h3>
 				<p style="text-align: left;">Let's go to our Exercise folder, find the _MediaQueryMagic folder, and open <strong>awesomeness.html</strong> in our browser.</p>
@@ -245,93 +245,81 @@
 				<img src = "images/magic2.png" width="330"/>
 			</section>
 
-
+			<!-- Test breakpoints -->
 			<section>
 				<h3>Let's take a peek at some awesomeness</h3>
-
-					<p style="text-align: left;">We can see the breakpoints and styles assigned to this page in our media queries as we narrow our browser window.</p>
-
-
-
-						<img src = "images/ss.png" width="630"/>
-						<img src = "images/ss2.png" width="430"/>
-						<img src = "images/ss3.png" width="230"/>
-
-
+				<p style="text-align: left;">We can see the breakpoints and styles assigned to this page in our media queries as we narrow our browser window.</p>
+				<img src = "images/ss.png" width="630"/>
+				<img src = "images/ss2.png" width="430"/>
+				<img src = "images/ss3.png" width="230"/>
 			</section>
 
-
-
-
-
-
-			 <section>
+			<!-- Open Second Exercise -->
+			<section>
 				<h3>The website we'll be working with next</h3>
-				<p>Let's open "working.html" in our browser.</p>
-
-				 <div class="left" width="500"> <img src = "images/baby-animals.png" width="500"/></div>
-						<div class="right"> <img src = "images/exercises-1.png" width="330"/></div>
-
-
+				<p>Let's open <strong>working.html</strong> in our browser.</p>
+				<div class="left" width="500">
+					<img src = "images/baby-animals.png" width="500"/>
+				</div>
+				<div class="right">
+					<img src = "images/exercises-1.png" width="330"/>
+				</div>
 			</section>
 
-
-			 <section>
+			<!-- Not responsive -->
+			<section>
 				<h3>Not Responsive :-(</h3>
 				<p>What if we don't want to start all over and make a totally new responsive site? We just want to make the <em>existing</em> site responsive.</p>
 				<img src="images/not.png" width="300"/>
 			</section>
 
+			<!-- Make it responsive -->
 			<section>
 				<h3>Making it Responsive</h3>
 				<p style="text-align: left;">We can totally make the following adjustments and get this site looking lovely on a mobile device:</p>
-
 				<ul>
 					<li>change up our font units</li>
 					<li>make the existing grid fluid</li>
 					<li>add CSS3 media queries</li>
 				</ul>
-
 				<p style="text-align: left; padding-top: 25px;">This will suit our needs because our site is small and manageable. But if you're starting a shiny new project, we'll explore some other options in a bit.</p>
-
 			</section>
 
-
-<section>
-				<h3>Making it Responsive: Fonts</h3>
-				<p>Once upon a time, in 2005, fonts were always set in <span class="pretty">px</span>.</p>
-				<p>But today we need to account for our billions of devices and a range of pixel densities. So, the most flexible unit for fonts (and a best practice) is now <span class="pretty">ems</span>. <a href="http://www.w3.org/WAI/GL/css2em.htm" target="_blank">Here's a detailed explanation.</a></p>
-				<p>
-					Good to know: The browser default for fonts is <span class="pretty">16px</span>, which is <span class="pretty">1em</span>.</p>
-
-			</section>
-
-	<section>
-				<h3>Making it Responsive: Fonts</h3>
-				<p>The first thing we need to do is change the fonts<br/> from px to ems.</p>
-				<p>There's a handy formula for this:<br/><span class="pretty">target &#247; context &#61; result</span></p><br/>
-				<p>So if we're converting a 24px font to ems,<br/>and 16px is the default size (context), we calculate:<br/><span class="pretty">24 (target) &#247; 16 (context) &#61; 1.5 (result)</span></p><br/>
-				<p style="font-size: 1.0em;"><span class="pretty">24px</span> is <span class="pretty">1.5</span> times greater than <span class="pretty">16px</span>,<br/>so our font-size is <span class="pretty">1.5em</span>.</p>
-
-			</section>
-
+			<!-- Responsive Typography -->
 			<section>
-				<h3>Making it Responsive: Fonts</h3>
+				<h3>Making it Responsive: Typography</h3>
+				<p>Once upon a time, in 2005, type was always set in <span class="pretty">px</span>.</p>
+				<p>But today we need to account for our billions of devices and a range of pixel densities. So, we use more flexible units for setting our type, like <span class="pretty">ems</span> or <span class="pretty">rems</span>.</p>
+				<p><a href="http://www.w3.org/WAI/GL/css2em.htm" target="_blank">Here's a good explanation of ems.</a></p>
+				<p><a href="http://snook.ca/archives/html_and_css/font-size-with-rem">Here's a good explanation of rems.</a></p>
+				<p>Good to know: The browser default for fonts is <span class="pretty">16px</span>, which is <span class="pretty">1em</span> or <span class="pretty">1rem</span>.</p>
+			</section>
+
+			<!-- Typography -->
+			<section>
+				<h3>Making it Responsive: Typography</h3>
+				<p>We're going to use <span class="pretty">ems</span> today.</p>
+				<p>The first thing we need to do is change the font sizes from px to ems.</p>
+				<p>There's a handy formula for this:<br/><span class="pretty">target &#247; context &#61; result</span></p><br/>
+				<p>So if we're converting 24px to ems,<br/>and 16px is the default size (context), we calculate:<br/><span class="pretty">24 (target) &#247; 16 (context) &#61; 1.5 (result)</span></p><br/>
+				<p style="font-size: 1.0em;"><span class="pretty">24px</span> is <span class="pretty">1.5</span> times greater than <span class="pretty">16px</span>,<br/>so our font-size is <span class="pretty">1.5em</span>.</p>
+			</section>
+
+			<!-- Typography -->
+			<section>
+				<h3>Making it Responsive: Typography</h3>
 				<p>For times when you are not in the mood for math, we have <a href="http://pxtoem.com/" target="_blank">pxtoem.com</a></p>
 				<a href="http://pxtoem.com/" target="_blank"><img src="images/px-to-em.png" width="700"/></a>
 			</section>
 
-
-<section>
-
-				<h3>Making it Responsive: Fonts</h3>
-
-				<p>Let's open "styles.css" in Sublime Text.<br/>Find all of the font-sizes that have px and convert them to the correct em sizes.<br/>We'll go through them one by one on the next few slides.</p>
-
-		 <img src = "images/workingstyles.png" width="330"/><br/><br/>
+			<!-- Let's Develop It -->
+			<section>
+				<h3>Let's Develop It!</h3>
+				<p>Let's open <strong>styles.css</strong> in Sublime Text.</p>
+				<p>Find all of the font-sizes that have px and convert them to the correct em sizes.</p>
+				<img src = "images/workingstyles.png" width="330"/>
 				<p>Use the formula<br/><span class="pretty">target &#247; context &#61; result</span></p>
-<p>or use the <a href="http://pxtoem.com/" target="_blank">pxtoem.com</a> chart/calculator</p>
-
+				<p>or use the <a href="http://pxtoem.com/" target="_blank">pxtoem.com</a> chart/calculator</p>
 			</section>
 
 			<section>
