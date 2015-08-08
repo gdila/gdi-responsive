@@ -1,6 +1,6 @@
 # Responsive Design 102: Making Sites Responsive
 
-Slides and materials are hosted at [http://gdila.github.io/gdi-responsive](gdila.github.io/gdi-responsive).
+Slides and materials are hosted at [gdila.github.io/gdi-responsive](http://gdila.github.io/gdi-responsive).
 
 ## Course description
 
